@@ -134,9 +134,9 @@ class _SplashPageState extends State<SplashPage> {
                       strokeWidth: 2,
                     ),
               Image.asset(
-                'assets/images/icon-480.png',
-                height: 30,
-                width: 30,
+                'assets/images/logo-twitter.png',
+                height: 28,
+                width: 28,
               )
             ],
           ),

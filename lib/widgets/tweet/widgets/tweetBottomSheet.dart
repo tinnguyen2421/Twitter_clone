@@ -93,7 +93,7 @@ class TweetBottomSheet {
           ),
         ),
         _widgetBottomSheetRow(context, AppIcon.link,
-            text: 'Copy link to tweet', isEnable: true, onPressed: () async {
+            text: 'Sao chép liên kết vào tweet', isEnable: true, onPressed: () async {
           Navigator.pop(context);
           var uri = await Utility.createLinkToShare(
             context,
@@ -109,26 +109,26 @@ class TweetBottomSheet {
           Utility.copyToClipBoard(
               context: context,
               text: uri.toString(),
-              message: "Tweet link copy to clipboard");
+              message: "Sao chép liên kết Tweet vào clipboard");
         }),
         isMyTweet
             ? _widgetBottomSheetRow(
                 context,
                 AppIcon.delete,
-                text: 'Delete Tweet',
+                text: 'Xóa Tweet',
                 onPressed: () {
                   showDialog(
                     context: context,
                     builder: (_) => AlertDialog(
-                      title: const Text("Delete"),
-                      content: const Text('Do you want to delete this Tweet?'),
+                      title: const Text("Xóa"),
+                      content: const Text('Bạn có muốn xóa Tweet này không?'),
                       actions: [
                         TextButton(
                           onPressed: () {
                             Navigator.pop(context);
                             Navigator.pop(context);
                           },
-                          child: const Text('Cancel'),
+                          child: const Text('Hủy'),
                         ),
                         TextButton(
                           style: ButtonStyle(
@@ -148,7 +148,7 @@ class TweetBottomSheet {
                               parentkey: model.parentkey,
                             );
                           },
-                          child: const Text('Confirm'),
+                          child: const Text('Xác nhận'),
                         ),
                       ],
                     ),
@@ -161,43 +161,43 @@ class TweetBottomSheet {
             ? _widgetBottomSheetRow(
                 context,
                 AppIcon.unFollow,
-                text: 'Pin to profile',
+                text: 'Ghim vào hồ sơ',
               )
             : _widgetBottomSheetRow(
                 context,
                 AppIcon.unFollow,
-                text: 'Unfollow ${model.user!.userName}',
+                text: 'Bỏ theo dõi ${model.user!.userName}',
               ),
         isMyTweet
             ? Container()
             : _widgetBottomSheetRow(
                 context,
                 AppIcon.mute,
-                text: 'Mute ${model.user!.userName}',
+                text: 'Tắt tiếng ${model.user!.userName}',
               ),
         _widgetBottomSheetRow(
           context,
           AppIcon.mute,
-          text: 'Mute this conversation',
+          text: 'Tắt tiếng cuộc trò chuyện này',
         ),
         _widgetBottomSheetRow(
           context,
           AppIcon.viewHidden,
-          text: 'View hidden replies',
+          text: 'Xem câu trả lời ẩn',
         ),
         isMyTweet
             ? Container()
             : _widgetBottomSheetRow(
                 context,
                 AppIcon.block,
-                text: 'Block ${model.user!.userName}',
+                text: 'Chặn ${model.user!.userName}',
               ),
         isMyTweet
             ? Container()
             : _widgetBottomSheetRow(
                 context,
                 AppIcon.report,
-                text: 'Report Tweet',
+                text: 'Báo cáo Tweet',
               ),
       ],
     );
@@ -221,7 +221,7 @@ class TweetBottomSheet {
           ),
         ),
         _widgetBottomSheetRow(context, AppIcon.link,
-            text: 'Copy link to tweet', isEnable: true, onPressed: () async {
+            text: 'Sao chép liên kết vào tweet', isEnable: true, onPressed: () async {
           var uri = await Utility.createLinkToShare(
             context,
             "tweet/${model.key}",
@@ -237,26 +237,26 @@ class TweetBottomSheet {
           Utility.copyToClipBoard(
               context: context,
               text: uri.toString(),
-              message: "Tweet link copy to clipboard");
+              message: "Sao chép liên kết Tweet vào clipboard");
         }),
         isMyTweet
             ? _widgetBottomSheetRow(
                 context,
                 AppIcon.delete,
-                text: 'Delete Tweet',
+                text: 'Xóa Tweet',
                 onPressed: () {
                   showDialog(
                     context: context,
                     builder: (_) => AlertDialog(
-                      title: const Text("Delete"),
-                      content: const Text('Do you want to delete this Tweet?'),
+                      title: const Text("Xóa"),
+                      content: const Text('Bạn có muốn xóa Tweet này không?'),
                       actions: [
                         TextButton(
                           onPressed: () {
                             Navigator.pop(context);
                             Navigator.pop(context);
                           },
-                          child: const Text('Cancel'),
+                          child: const Text('Hủy'),
                         ),
                         TextButton(
                           style: ButtonStyle(
@@ -276,7 +276,7 @@ class TweetBottomSheet {
                               parentkey: model.parentkey,
                             );
                           },
-                          child: const Text('Confirm'),
+                          child: const Text('Xác nhận'),
                         ),
                       ],
                     ),
@@ -289,40 +289,40 @@ class TweetBottomSheet {
             ? _widgetBottomSheetRow(
                 context,
                 AppIcon.thumbpinFill,
-                text: 'Pin to profile',
+                text: 'Ghim vào hồ sơ',
               )
             : _widgetBottomSheetRow(
                 context,
                 AppIcon.sadFace,
-                text: 'Not interested in this',
+                text: 'Không quan tâm đến điều này',
               ),
         isMyTweet
             ? Container()
             : _widgetBottomSheetRow(
                 context,
                 AppIcon.unFollow,
-                text: 'Unfollow ${model.user!.userName}',
+                text: 'Bỏ theo dõi ${model.user!.userName}',
               ),
         isMyTweet
             ? Container()
             : _widgetBottomSheetRow(
                 context,
                 AppIcon.mute,
-                text: 'Mute ${model.user!.userName}',
+                text: 'Tắt tiếng ${model.user!.userName}',
               ),
         isMyTweet
             ? Container()
             : _widgetBottomSheetRow(
                 context,
                 AppIcon.block,
-                text: 'Block ${model.user!.userName}',
+                text: 'Chặn ${model.user!.userName}',
               ),
         isMyTweet
             ? Container()
             : _widgetBottomSheetRow(
                 context,
                 AppIcon.report,
-                text: 'Report Tweet',
+                text: 'Báo cáo Tweet',
               ),
       ],
     );
@@ -454,7 +454,7 @@ class TweetBottomSheet {
         _widgetBottomSheetRow(
           context,
           AppIcon.edit,
-          text: 'Retweet with comment',
+          text: 'Đăng lại với bình luận',
           isEnable: true,
           onPressed: () {
             var state = Provider.of<FeedState>(context, listen: false);
@@ -516,13 +516,13 @@ class TweetBottomSheet {
           context,
           AppIcon.bookmark,
           isEnable: true,
-          text: 'Bookmark',
+          text: 'Dấu trang',
           onPressed: () async {
             var state = Provider.of<FeedState>(context, listen: false);
             await state.addBookmark(model.key!);
             Navigator.pop(context);
             ScaffoldMessenger.maybeOf(context)!.showSnackBar(
-              const SnackBar(content: Text("Bookmark saved!!")),
+              const SnackBar(content: Text("Đã lưu dấu trang!!")),
             );
           },
         ),
@@ -531,7 +531,7 @@ class TweetBottomSheet {
           context,
           AppIcon.link,
           isEnable: true,
-          text: 'Share Link',
+          text: 'Chia sẻ đường link',
           onPressed: () async {
             Navigator.pop(context);
             var url = Utility.createLinkToShare(
@@ -547,7 +547,7 @@ class TweetBottomSheet {
         _widgetBottomSheetRow(
           context,
           AppIcon.image,
-          text: 'Share with Tweet thumbnail',
+          text: 'Chia sẻ với hình thu nhỏ Tweet',
           isEnable: true,
           onPressed: () {
             socialMetaTagParameters = SocialMetaTagParameters(

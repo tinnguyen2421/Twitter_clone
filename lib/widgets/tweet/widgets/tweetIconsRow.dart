@@ -137,7 +137,7 @@ class TweetIconsRow extends StatelessWidget {
             customText(Utility.getPostTime2(model.createdAt),
                 style: TextStyles.textStyle14),
             const SizedBox(width: 10),
-            customText('Fwitter for Android',
+            customText('Twitter cho Android',
                 style: TextStyle(color: Theme.of(context).primaryColor))
           ],
         ),
@@ -177,7 +177,7 @@ class TweetIconsRow extends StatelessWidget {
                         : const SizedBox(width: 5),
                     AnimatedCrossFade(
                       firstChild: const SizedBox.shrink(),
-                      secondChild: customText('Retweets',
+                      secondChild: customText('Đăng lại',
                           style: TextStyles.subtitleStyle),
                       crossFadeState: !isRetweetAvailable
                           ? CrossFadeState.showFirst
@@ -203,7 +203,7 @@ class TweetIconsRow extends StatelessWidget {
                                   key: ValueKey(model.likeCount)),
                             ),
                             const SizedBox(width: 5),
-                            customText('Likes', style: TextStyles.subtitleStyle)
+                            customText('Lượt thích', style: TextStyles.subtitleStyle)
                           ],
                         ),
                         crossFadeState: !isLikeAvailable
@@ -246,11 +246,11 @@ class TweetIconsRow extends StatelessWidget {
     Navigator.of(context).push(
       CustomRoute<bool>(
         builder: (BuildContext context) => UsersListPage(
-          pageTitle: "Liked by",
+          pageTitle: "Được thích bởi",
           userIdsList: model.likeList!.map((userId) => userId).toList(),
-          emptyScreenText: "This tweet has no like yet",
+          emptyScreenText: "Tweet này chưa có lượt thích nào",
           emptyScreenSubTileText:
-              "Once a user likes this tweet, user list will be shown here",
+              "Khi người dùng thích tweet này, danh sách người dùng sẽ được hiển thị ở đây",
         ),
       ),
     );

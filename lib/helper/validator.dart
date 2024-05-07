@@ -13,7 +13,7 @@ class Validator {
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
     RegExp regex = RegExp(pattern);
     if (!regex.hasMatch(s)) {
-      return 'Please enter an email!';
+      return 'Vui lòng nhập email!';
     } else {
       return null;
     }
@@ -21,17 +21,17 @@ class Validator {
 
   String? validateName(String s) {
     if (_isNumeric(s)) {
-      return 'Invalid Name!';
+      return 'Tên không tồn tại';
     }
     if (s.isEmpty) {
-      return 'Don\'t forget your name!';
+      return 'Đừng quên tên của bạn!';
     }
     return null;
   }
 
   String? validatePassword(String s) {
     if (s.isEmpty) {
-      return 'Gotta be secure, enter a password!';
+      return 'Phải an toàn, nhập mật khẩu!';
     }
     return null;
   }

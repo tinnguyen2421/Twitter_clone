@@ -206,10 +206,10 @@ class _ComposeTweetReplyPageState extends State<ComposeTweetPage> {
         onActionPressed: _submitButton,
         isCrossButton: true,
         submitButtonText: widget.isTweet
-            ? 'Tweet'
+            ? 'Đăng'
             : widget.isRetweet
-                ? 'Retweet'
-                : 'Reply',
+                ? 'Đăng lại'
+                : 'Trả lời',
         isSubmitDisable:
             !Provider.of<ComposeTweetState>(context).enableSubmitButton ||
                 Provider.of<FeedState>(context).isBusy,
@@ -429,7 +429,7 @@ class _ComposeTweet
                   const SizedBox(height: 30),
                   UrlText(
                     text:
-                        'Replying to ${viewState.model!.user!.userName ?? viewState.model!.user!.displayName}',
+                        'Đang trả lời ${viewState.model!.user!.userName ?? viewState.model!.user!.displayName}',
                     style: TextStyle(
                       color: TwitterColor.paleSky,
                       fontSize: 13,
@@ -556,10 +556,10 @@ class _TextField extends StatelessWidget {
           decoration: InputDecoration(
               border: InputBorder.none,
               hintText: isTweet
-                  ? 'What\'s happening?'
+                  ? 'Chuyện gì đang xảy ra ?'
                   : isRetweet
-                      ? 'Add a comment'
-                      : 'Tweet your reply',
+                      ? 'Thêm một bình luận'
+                      : 'Đăng câu trả lời của bạn',
               hintStyle: const TextStyle(fontSize: 18)),
         ),
       ],

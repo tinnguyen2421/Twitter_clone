@@ -64,7 +64,7 @@ class Utility {
     }
     var dt = DateTime.parse(date).toLocal();
     var dat = DateFormat("MMMM yyyy").format(dt);
-    return 'Joined $dat';
+    return 'Đã tham gia $dat';
   }
 
   static String getChatTime(String? date) {
@@ -84,16 +84,16 @@ class Utility {
     } else if (dur.inDays > 30) {
       msg = DateFormat.yMMMd().format(dt);
     } else if (dur.inDays > 0) {
-      msg = '${dur.inDays} d';
-      return dur.inDays == 1 ? '1d' : DateFormat.MMMd().format(dt);
+      msg = '${dur.inDays} ngày';
+      return dur.inDays == 1 ? '1 ngày' : DateFormat.MMMd().format(dt);
     } else if (dur.inHours > 0) {
-      msg = '${dur.inHours} h';
+      msg = '${dur.inHours} giờ';
     } else if (dur.inMinutes > 0) {
-      msg = '${dur.inMinutes} m';
+      msg = '${dur.inMinutes} phút';
     } else if (dur.inSeconds > 0) {
-      msg = '${dur.inSeconds} s';
+      msg = '${dur.inSeconds} giây';
     } else {
-      msg = 'now';
+      msg = 'bây giờ';
     }
     return msg;
   }
@@ -110,21 +110,21 @@ class Utility {
     hr = dur.inHours - dur.inDays * 24;
     mm = dur.inMinutes - (dur.inHours * 60);
     if (dur.inDays > 0) {
-      msg = ' ' + dur.inDays.toString() + (dur.inDays > 1 ? ' Days ' : ' Day');
+      msg = ' ' + dur.inDays.toString() + (dur.inDays > 1 ? ' Ngày ' : ' Ngày');
     }
     if (hr > 0) {
-      msg += ' ' + hr.toString() + ' hour';
+      msg += ' ' + hr.toString() + ' giờ';
     }
     if (mm > 0) {
-      msg += ' ' + mm.toString() + ' min';
+      msg += ' ' + mm.toString() + ' phút';
     }
     return (dur.inDays).toString() +
-        ' Days ' +
+        ' Ngày ' +
         ' ' +
         hr.toString() +
-        ' Hours ' +
+        ' Giờ ' +
         mm.toString() +
-        ' min';
+        ' phút';
   }
 
   static String? getSocialLinks(String? url) {
@@ -203,19 +203,19 @@ class Utility {
   static bool validateCredentials(
       BuildContext context, String? email, String? password) {
     if (email == null || email.isEmpty) {
-      customSnackBar(context, 'Please enter email id');
+      customSnackBar(context, 'Vui lòng nhập địa chỉ email!');
       return false;
     } else if (password == null || password.isEmpty) {
-      customSnackBar(context, 'Please enter password');
+      customSnackBar(context, 'Vui lòng nhập mật khẩu');
       return false;
     } else if (password.length < 8) {
-      customSnackBar(context, 'Password must me 8 character long');
+      customSnackBar(context, 'Mật khẩu phải hơn 8 ký tự');
       return false;
     }
 
     var status = validateEmail(email);
     if (!status) {
-      customSnackBar(context, 'Please enter valid email id');
+      customSnackBar(context, 'Vui lòng nhập địa chỉ email!');
       return false;
     }
     return true;

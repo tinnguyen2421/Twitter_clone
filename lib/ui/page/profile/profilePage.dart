@@ -242,10 +242,10 @@ class _ProfilePageState extends State<ProfilePage>
                                   // Otherwise Follow/Following button will be display
                                   child: Text(
                                     isMyProfile
-                                        ? 'Edit Profile'
+                                        ? 'Thiết lập hồ sơ'
                                         : isFollower()
-                                            ? 'Following'
-                                            : 'Follow',
+                                            ? 'Đang theo dõi'
+                                            : 'Theo dõi',
                                     style: TextStyle(
                                       color: isMyProfile
                                           ? Colors.black87.withAlpha(180)
@@ -368,9 +368,9 @@ class _ProfilePageState extends State<ProfilePage>
                         indicator: TabIndicator(),
                         controller: _tabController,
                         tabs: const <Widget>[
-                          Text("Tweets"),
-                          Text("Tweets & replies"),
-                          Text("Media")
+                          Text("Bài đăng"),
+                          Text("Trả lời"),
+                          Text("Phương tiện")
                         ],
                       ),
                     )
@@ -440,11 +440,11 @@ class _ProfilePageState extends State<ProfilePage>
                 padding: const EdgeInsets.only(top: 50, left: 30, right: 30),
                 child: NotifyText(
                   title: isMyProfile
-                      ? 'You haven\'t ${isReply ? 'reply to any Tweet' : isMedia ? 'post any media Tweet yet' : 'post any Tweet yet'}'
-                      : '${authState.profileUserModel.userName} hasn\'t ${isReply ? 'reply to any Tweet' : isMedia ? 'post any media Tweet yet' : 'post any Tweet yet'}',
+                      ? 'Bạn chưa ${isReply ? 'trả lời bất kỳ Tweet nào' : isMedia ? 'đăng bất kì phương tiện nào' : 'đăng bất kì Tweet nào'}'
+                      : '${authState.profileUserModel.userName} chưa ${isReply ? 'trả lời bất kỳ Tweet nào' : isMedia ? 'đăng bất kì phương tiện nào' : 'đăng bất kì Tweet nào'}',
                   subTitle: isMyProfile
-                      ? 'Tap tweet button to add new'
-                      : 'Once he\'ll do, they will be shown up here',
+                      ? 'Nhấn vào nút tweet để thêm mới'
+                      : 'Một khi anh ấy làm xong, mọi thứ sẽ xuất hiện ở đây',
                 ),
               )
 
@@ -483,8 +483,8 @@ class UserNameRowWidget extends StatelessWidget {
   String getBio(String bio) {
     if (isMyProfile) {
       return bio;
-    } else if (bio == "Edit profile to update bio") {
-      return "No bio available";
+    } else if (bio == "Chỉnh sửa hồ sơ để cập nhật tiểu sử") {
+      return "Không có thông tin";
     } else {
       return bio;
     }
@@ -609,7 +609,7 @@ class UserNameRowWidget extends StatelessWidget {
                 width: 10,
                 height: 30,
               ),
-              _textButton(context, user.getFollower, ' Followers', () {
+              _textButton(context, user.getFollower, ' Người theo dõi', () {
                 var state = context.read<ProfileState>();
                 Navigator.push(
                   context,
@@ -620,7 +620,7 @@ class UserNameRowWidget extends StatelessWidget {
                 );
               }),
               const SizedBox(width: 40),
-              _textButton(context, user.getFollowing, ' Following', () {
+              _textButton(context, user.getFollowing, ' Đang theo dõi', () {
                 var state = context.read<ProfileState>();
                 Navigator.push(
                   context,

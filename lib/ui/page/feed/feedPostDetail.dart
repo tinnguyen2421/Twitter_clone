@@ -102,7 +102,7 @@ class _FeedPostDetailState extends State<FeedPostDetail> {
             SliverAppBar(
               pinned: true,
               title: customTitleText(
-                'Thread',
+                'Đăng',
               ),
               iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
               backgroundColor: Theme.of(context).appBarTheme.backgroundColor,

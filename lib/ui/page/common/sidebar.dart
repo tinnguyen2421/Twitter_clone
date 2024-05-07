@@ -259,30 +259,30 @@ class _SidebarMenuState extends State<SidebarMenu> {
                     child: _menuHeader(),
                   ),
                   const Divider(),
-                  _menuListRowButton('Profile',
+                  _menuListRowButton('Hồ sơ',
                       icon: AppIcon.profile, isEnable: true, onPressed: () {
                     var state = context.read<AuthState>();
                     Navigator.push(
                         context, ProfilePage.getRoute(profileId: state.userId));
                   }),
                   _menuListRowButton(
-                    'Bookmark',
+                    'Dấu trang',
                     icon: AppIcon.bookmark,
                     isEnable: true,
                     onPressed: () {
                       Navigator.push(context, BookmarkPage.getRoute());
                     },
                   ),
-                  _menuListRowButton('Lists', icon: AppIcon.lists),
-                  _menuListRowButton('Moments', icon: AppIcon.moments),
+                  _menuListRowButton('Danh sách', icon: AppIcon.lists),
+                  _menuListRowButton('Khoảnh khắc', icon: AppIcon.moments),
                   const Divider(),
-                  _menuListRowButton('Settings and privacy', isEnable: true,
+                  _menuListRowButton('Cài đặt và riêng tư', isEnable: true,
                       onPressed: () {
                     _navigateTo('SettingsAndPrivacyPage');
                   }),
-                  _menuListRowButton('Help Center'),
+                  _menuListRowButton('Trung tâm trợ giúp'),
                   const Divider(),
-                  _menuListRowButton('Logout',
+                  _menuListRowButton('Đăng xuất',
                       icon: null, onPressed: _logOut, isEnable: true),
                 ],
               ),

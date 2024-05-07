@@ -153,10 +153,10 @@ class AuthState extends AppState {
     // If user is new then add new user to firebase realtime kDatabase
     if (diff < const Duration(seconds: 15)) {
       UserModel model = UserModel(
-        bio: 'Edit profile to update bio',
+        bio: 'Chỉnh sửa hồ sơ để cập nhật tiểu sử',
         dob: DateTime(1950, DateTime.now().month, DateTime.now().day + 3)
             .toString(),
-        location: 'Somewhere in universe',
+        location: 'Đâu đó trong vũ trụ',
         profilePic: user.photoURL!,
         displayName: user.displayName!,
         email: user.email!,

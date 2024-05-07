@@ -91,7 +91,7 @@ class CustomScreenLoader extends StatelessWidget {
                       strokeWidth: 2,
                     ),
               Image.asset(
-                'assets/images/icon-480.png',
+                'assets/images/logo-twitter.png',
                 height: 30,
                 width: 30,
               )

@@ -116,7 +116,7 @@ class _SignupState extends State<Signup> {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 35),
       child: CustomFlatButton(
-        label: "Sign up",
+        label: "Đăng kí",
         onPressed: () => _submitForm(context),
         borderRadius: 30,
       ),
@@ -125,19 +125,19 @@ class _SignupState extends State<Signup> {
 
   void _submitForm(BuildContext context) {
     if (_nameController.text.isEmpty) {
-      Utility.customSnackBar(context, 'Please enter name');
+      Utility.customSnackBar(context, 'Vui lòng nhập tên');
       return;
     }
     if (_nameController.text.length > 27) {
-      Utility.customSnackBar(context, 'Name length cannot exceed 27 character');
+      Utility.customSnackBar(context, 'Độ dài tên không được vượt quá 27 ký tự');
       return;
     }
     if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
-      Utility.customSnackBar(context, 'Please fill form carefully');
+      Utility.customSnackBar(context, 'Vui lòng điền đầy đủ');
       return;
     } else if (_passwordController.text != _confirmController.text) {
       Utility.customSnackBar(
-          context, 'Password and confirm password did not match');
+          context, 'Mật khẩu và mật khẩu xác nhận không khớp');
       return;
     }
 
@@ -148,12 +148,12 @@ class _SignupState extends State<Signup> {
 
     UserModel user = UserModel(
       email: _emailController.text.toLowerCase(),
-      bio: 'Edit profile to update bio',
+      bio: 'Chỉnh sửa hồ sơ để cập nhật tiểu sử',
       // contact:  _mobileController.text,
       displayName: _nameController.text,
       dob: DateTime(1950, DateTime.now().month, DateTime.now().day + 3)
           .toString(),
-      location: 'Somewhere in universe',
+      location: 'Đâu đó trong vũ trụ!',
       profilePic: Constants.dummyProfilePicList[randomNumber],
       isVerified: false,
     );
@@ -181,7 +181,7 @@ class _SignupState extends State<Signup> {
     return Scaffold(
       appBar: AppBar(
         title: customText(
-          'Sign Up',
+          'Đăng kí',
           context: context,
           style: const TextStyle(fontSize: 20),
         ),
