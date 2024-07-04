@@ -23,33 +23,33 @@ class AboutPage extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         children: <Widget>[
           const HeaderWidget(
-            'Help',
+            'Nhận trợ giúp',
             secondHeader: true,
           ),
           SettingRowWidget(
-            "Help Centre",
+            "Trung tâm trợ giúp",
             vPadding: 0,
             showDivider: false,
             onPressed: () {
               Utility.launchURL(
-                  "https://github.com/TheAlphamerc/flutter_twitter_clone/issues");
+                  "https://github.com/tinnguyen2421/Twitter_clone");
             },
           ),
-          const HeaderWidget('Legal'),
+          const HeaderWidget('Pháp lý'),
           const SettingRowWidget(
-            "Terms of Service",
+            "Điều khoản dịch dụ",
             showDivider: true,
           ),
           const SettingRowWidget(
-            "Privacy policy",
+            "Chính sách riêng tư",
             showDivider: true,
           ),
           const SettingRowWidget(
-            "Cookie use",
+            "Sử dụng Cookie",
             showDivider: true,
           ),
           SettingRowWidget(
-            "Legal notices",
+            "Thông báo pháp lý",
             showDivider: true,
             onPressed: () async {
               showLicensePage(
@@ -62,16 +62,16 @@ class AboutPage extends StatelessWidget {
           ),
           const HeaderWidget('Developer'),
           SettingRowWidget("Github", showDivider: true, onPressed: () {
-            Utility.launchURL("https://github.com/TheAlphamerc");
+            Utility.launchURL("https://github.com/tinnguyen2421/Twitter_clone");
           }),
           SettingRowWidget("LinkidIn", showDivider: true, onPressed: () {
-            Utility.launchURL("https://www.linkedin.com/in/thealphamerc/");
+            Utility.launchURL("https://github.com/tinnguyen2421/Twitter_clone");
           }),
           SettingRowWidget("Twitter", showDivider: true, onPressed: () {
-            Utility.launchURL("https://twitter.com/TheAlphaMerc");
+            Utility.launchURL("https://github.com/tinnguyen2421/Twitter_clone");
           }),
           SettingRowWidget("Blog", showDivider: true, onPressed: () {
-            Utility.launchURL("https://dev.to/thealphamerc");
+            Utility.launchURL("https://github.com/tinnguyen2421/Twitter_clone");
           }),
         ],
       ),

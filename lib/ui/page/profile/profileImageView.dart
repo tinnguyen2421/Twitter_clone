@@ -16,12 +16,12 @@ class ProfileImageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const List<Choice> choices = <Choice>[
-      Choice(title: 'Share image link', icon: Icons.share, isEnable: true),
+      Choice(title: 'Chia sẻ liên kết hình ảnh', icon: Icons.share, isEnable: true),
       Choice(
-          title: 'Open in browser',
+          title: 'Mở trong trình duyệt',
           icon: Icons.open_in_browser,
           isEnable: true),
-      Choice(title: 'Save', icon: Icons.save),
+      Choice(title: 'Lưu', icon: Icons.save),
     ];
     return Scaffold(
       backgroundColor: TwitterColor.white,
@@ -30,13 +30,13 @@ class ProfileImageView extends StatelessWidget {
           PopupMenuButton<Choice>(
             onSelected: (d) {
               switch (d.title) {
-                case "Share image link":
+                case "Chia sẻ liên kết hình ảnh":
                   Utility.share(avatar);
                   break;
-                case "Open in browser":
+                case "Mở trong trình duyệt":
                   Utility.launchURL(avatar);
                   break;
-                case "Save":
+                case "Lưu":
                   break;
               }
             },

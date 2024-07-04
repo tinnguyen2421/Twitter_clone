@@ -16,32 +16,32 @@ class DirectMessagesPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: TwitterColor.white,
       appBar: SettingsAppBar(
-        title: 'Direct Messages',
+        title: 'Tin nhắn trực tiếp',
         subtitle: user.userName,
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children: const <Widget>[
           HeaderWidget(
-            'Direct Messages',
+            'Tin nhắn trực tiếp',
             secondHeader: true,
           ),
           SettingRowWidget(
-            "Receive message requests",
+            "Nhận yêu cầu tin nhắn",
             navigateTo: null,
             showDivider: false,
             visibleSwitch: true,
             vPadding: 20,
             subtitle:
-                'You will be able to receive Direct Message requests from anyone on Fwitter, even if you don\'t follow them.',
+                'Bạn sẽ có thể nhận được yêu cầu Tin nhắn Trực tiếp từ bất kỳ ai trên Fwitter, ngay cả khi bạn không theo dõi họ.',
           ),
           SettingRowWidget(
-            "Show read receipts",
+            "Hiển thị đã đọc",
             navigateTo: null,
             showDivider: false,
             visibleSwitch: true,
             subtitle:
-                'When someone sends you a message, people in the conversation will know you\'ve seen it. If you turn off this setting, you won\'t be able to see read receipt from others.',
+                'Khi ai đó gửi tin nhắn cho bạn, mọi người trong cuộc trò chuyện sẽ biết bạn đã xem tin nhắn đó. Nếu tắt cài đặt này, bạn sẽ không thể xem biên nhận đã đọc từ người khác.',
           ),
         ],
       ),

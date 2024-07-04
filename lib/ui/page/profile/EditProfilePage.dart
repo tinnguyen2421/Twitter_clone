@@ -71,12 +71,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ],
           ),
         ),
-        _entry('Name', controller: _name),
-        _entry('Bio', controller: _bio),
-        _entry('Location', controller: _location),
+        _entry('Tên', controller: _name),
+        _entry('Thông tin', controller: _bio),
+        _entry('Vị trí', controller: _location),
         InkWell(
           onTap: showCalender,
-          child: _entry('Date of birth', enabled: false, controller: _dob),
+          child: _entry('Ngày tháng năm sinh', enabled: false, controller: _dob),
         )
       ],
     );

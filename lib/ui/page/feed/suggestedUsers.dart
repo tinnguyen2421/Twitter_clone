@@ -63,7 +63,7 @@ class _SuggestedUsersState extends State<SuggestedUsers> {
                       child: state.selectedUsersCount >= userToFollowCount
                           ? SizedBox()
                           : Text(
-                              '${userToFollowCount - state.selectedUsersCount} more to follow',
+                              '${userToFollowCount - state.selectedUsersCount} hơn để làm theo',
                               style: TextStyles.titleStyle,
                             ),
                     ),
@@ -77,7 +77,7 @@ class _SuggestedUsersState extends State<SuggestedUsers> {
                                 await state.followUsers();
                                 isLoading.value = false;
                               },
-                        label: 'Follow ${state.selectedUsersCount}',
+                        label: 'Theo dõi ${state.selectedUsersCount}',
                         isWrapped: true,
                         borderRadius: 50,
                         labelStyle: TextStyles.onPrimaryTitleText,
@@ -130,10 +130,10 @@ class _SuggestedUsersState extends State<SuggestedUsers> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  TitleText('Suggestions for you to follow'),
+                                  TitleText('Gợi ý để bạn làm theo'),
                                   SizedBox(height: 8),
                                   Text(
-                                    'When you follow someone, you\'ll see their Tweets in your Home Timeline',
+                                    'Khi bạn theo dõi ai đó, bạn sẽ thấy Tweet của họ trên Dòng thời gian tại nhà của bạn',
                                     style: TextStyles.textStyle14,
                                   ),
                                 ],
@@ -148,7 +148,7 @@ class _SuggestedUsersState extends State<SuggestedUsers> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    TitleText('You may be Interested In'),
+                                    TitleText('Có thể bạn quan tâm'),
                                     IconButton(
                                       onPressed: () {
                                         state.toggleAllSelections();
@@ -179,12 +179,12 @@ class _SuggestedUsersState extends State<SuggestedUsers> {
                               children: [
                                 SizedBox(height: 100),
                                 NotifyText(
-                                    subTitle: 'No user available to follow'),
+                                    subTitle: 'Không có người dùng nào để theo dõi'),
                                 TextButton(
                                   onPressed: () {
                                     state.displaySuggestions = false;
                                   },
-                                  child: Text('Skip'),
+                                  child: Text('Bỏ qua'),
                                 ),
                               ],
                             ),

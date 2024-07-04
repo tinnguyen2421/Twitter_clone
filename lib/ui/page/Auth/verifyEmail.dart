@@ -28,16 +28,16 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
         children: state.user!.emailVerified
             ? <Widget>[
                 NotifyText(
-                  title: 'Your email address is verified',
+                  title: 'Địa chỉ email của bạn đã được xác minh!',
                   subTitle:
-                      'You have got your blue tick on your name. Cheers !!',
+                      'Bạn đã có dấu tích màu xanh trên tên của mình. Chúc mừng!!',
                 ),
               ]
             : <Widget>[
                 NotifyText(
-                  title: 'Verify your email address',
+                  title: 'Xác minh địa chỉ email của bạn',
                   subTitle:
-                      'Send email verification email link to ${state.user!.email} to verify address',
+                      'Gửi liên kết xác minh email tới ${state.user!.email} để xác minh địa chỉ',
                 ),
                 const SizedBox(
                   height: 30,
@@ -63,7 +63,7 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
             onPressed: _submit,
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
             child: const TitleText(
-              'Send Link',
+              'Gửi Link',
               color: Colors.white,
             ),
           ),
@@ -84,7 +84,7 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
       backgroundColor: TwitterColor.mystic,
       appBar: AppBar(
         title: customText(
-          'Email Verification',
+          'Xác thực Email',
           context: context,
           style: const TextStyle(fontSize: 20),
         ),

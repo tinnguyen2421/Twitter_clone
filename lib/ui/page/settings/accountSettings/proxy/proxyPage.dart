@@ -14,28 +14,28 @@ class ProxyPage extends StatelessWidget {
       appBar: CustomAppBar(
         isBackButton: true,
         title: customTitleText(
-          'Proxy',
+            'Ủy quyền',
         ),
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children: const <Widget>[
           SettingRowWidget(
-            "Enable HTTP Proxy",
+            "Kích hoạt proxy HTTP",
             showCheckBox: false,
             vPadding: 15,
             showDivider: true,
             subtitle:
-                'Configure HTTP proxy for network request (note: this does not apply to browser).',
+                'Định cấu hình proxy HTTP cho yêu cầu mạng (lưu ý: điều này không áp dụng cho trình duyệt).',
           ),
           SettingRowWidget(
-            "Proxy Host",
-            subtitle: 'Configure your proxy\'s hostname.',
+            "Máy chủ proxy",
+            subtitle: 'Định cấu hình tên máy chủ proxy của bạn.',
             showDivider: true,
           ),
           SettingRowWidget(
-            "Proxy Port",
-            subtitle: 'Configure your proxy\'s port number.',
+            "Cổng giao thức",
+            subtitle: 'Định cấu hình số cổng proxy của bạn.',
           ),
         ],
       ),

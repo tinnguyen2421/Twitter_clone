@@ -50,9 +50,9 @@ class _ChatListPageState extends State<ChatListPage> {
       return const Padding(
         padding: EdgeInsets.symmetric(horizontal: 30),
         child: EmptyList(
-          'No message available ',
+          'Không có tin nhắn ',
           subTitle:
-              'When someone sends you message,UserModel list\'ll show up here \n  To send message tap message button.',
+              'Khi ai đó gửi tin nhắn cho bạn, danh sách Người dùng\ sẽ hiển thị ở đây \n Để gửi tin nhắn, hãy nhấn vào nút tin nhắn.',
         ),
       );
     } else {

@@ -38,7 +38,7 @@ class UnavailableTweet extends StatelessWidget {
                 ),
               ),
             )
-          : Text('This Tweet is unavailable', style: TextStyles.userNameStyle),
+          : Text('Tweet này không có sẵn', style: TextStyles.userNameStyle),
     );
   }
 }

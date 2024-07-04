@@ -20,35 +20,35 @@ class SettingsAndPrivacyPage extends StatelessWidget {
       appBar: CustomAppBar(
         isBackButton: true,
         title: customTitleText(
-          'Settings and privacy',
+          'Cài đặt và quyền riêng tư',
         ),
       ),
       body: ListView(
         children: <Widget>[
           HeaderWidget(user.userName),
           const SettingRowWidget(
-            "Account",
+            "Tài khoản",
             navigateTo: 'AccountSettingsPage',
           ),
           const Divider(height: 0),
-          const SettingRowWidget("Privacy and Policy",
+          const SettingRowWidget("Quyền riêng tư và chính sách",
               navigateTo: 'PrivacyAndSaftyPage'),
-          const SettingRowWidget("Notification",
+          const SettingRowWidget("Thông báo",
               navigateTo: 'NotificationPage'),
-          const SettingRowWidget("Content prefrences",
+          const SettingRowWidget("Tùy chọn nội dung",
               navigateTo: 'ContentPrefrencePage'),
           const HeaderWidget(
-            'General',
+            'Tổng quan',
             secondHeader: true,
           ),
-          const SettingRowWidget("Display and Sound",
+          const SettingRowWidget("Màn hình và âm thanh",
               navigateTo: 'DisplayAndSoundPage'),
-          const SettingRowWidget("Data usage", navigateTo: 'DataUsagePage'),
-          const SettingRowWidget("Accessibility",
+          const SettingRowWidget("Sử dụng dữ liệu", navigateTo: 'DataUsagePage'),
+          const SettingRowWidget("Khả năng tiếp cận",
               navigateTo: 'AccessibilityPage'),
-          const SettingRowWidget("Proxy", navigateTo: "ProxyPage"),
+          const SettingRowWidget("Ủy quyền", navigateTo: "ProxyPage"),
           const SettingRowWidget(
-            "About Fwitter",
+            "Giới thiệu về Twitter",
             navigateTo: "AboutPage",
           ),
           const SettingRowWidget(
@@ -56,7 +56,7 @@ class SettingsAndPrivacyPage extends StatelessWidget {
             showDivider: false,
             vPadding: 10,
             subtitle:
-                'These settings affect all of your Fwitter accounts on this devce.',
+                'Những cài đặt này ảnh hưởng đến tất cả tài khoản Twitter của bạn trên thiết bị này.',
           )
         ],
       ),

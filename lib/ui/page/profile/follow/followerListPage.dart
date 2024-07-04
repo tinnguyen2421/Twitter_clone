@@ -37,11 +37,11 @@ class FollowerListPage extends StatelessWidget {
       );
     }
     return UsersListPage(
-      pageTitle: 'Followers',
+      pageTitle: 'Người theo dõi',
       userIdsList: userList,
-      emptyScreenText: '${profile?.userName} doesn\'t have any followers',
+      emptyScreenText: '${profile?.userName}không có người theo dõi nào',
       emptyScreenSubTileText:
-          'When someone follow them, they\'ll be listed here.',
+          'Khi ai đó theo dõi , họ sẽ được liệt kê ở đây.',
       isFollowing: (user) {
         return context.watch<FollowListState>().isFollowing(user);
       },

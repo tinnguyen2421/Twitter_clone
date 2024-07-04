@@ -50,14 +50,14 @@ class DataUsagePage extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 15),
-            child: TitleText('Data preference'),
+            child: TitleText('Tùy chọn dữ liệu'),
           ),
           const Divider(height: 0),
-          _row("Mobile data & Wi-Fi"),
+          _row("Dữ liệu di động và Wi-Fi"),
           const Divider(height: 0),
-          _row("Wi-Fi only"),
+          _row("Chỉ wifi"),
           const Divider(height: 0),
-          _row("Never"),
+          _row("Không bao giờ"),
         ],
       ),
     );
@@ -80,12 +80,12 @@ class DataUsagePage extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
-            child: TitleText('Dark mode appearance'),
+            child: TitleText('Xuất hiện chế độ tối'),
           ),
           const Divider(height: 0),
-          _row("Dim"),
+          _row("Mờ"),
           const Divider(height: 0),
-          _row("Light out"),
+          _row("Tắt"),
         ],
       ),
     );
@@ -111,28 +111,28 @@ class DataUsagePage extends StatelessWidget {
       appBar: CustomAppBar(
         isBackButton: true,
         title: customTitleText(
-          'Data Usage',
+          'Sử dụng dữ liệu',
         ),
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children: <Widget>[
-          const HeaderWidget('Data Saver'),
+          const HeaderWidget('Trình tiết kiệm dữ liệu'),
           const SettingRowWidget(
-            "Data saver",
+            "Tiết kiệm dữ liệu",
             showCheckBox: true,
             vPadding: 15,
             showDivider: false,
             subtitle:
-                'When enabled, video won\'t autoplay and lower-quality images load. This automatically reduces your data usage for all Fwitter accounts on this device.',
+                'Khi được bật, video sẽ không tự động phát và tải hình ảnh có chất lượng thấp hơn. Điều này sẽ tự động giảm mức sử dụng dữ liệu của bạn cho tất cả tài khoản Fwitter trên thiết bị này.',
             visibleSwitch: null,
           ),
           const Divider(height: 0),
-          const HeaderWidget('Images'),
+          const HeaderWidget('Hình ảnh'),
           SettingRowWidget(
-            "High quality images",
+            "Hình ảnh chất lượng cao",
             subtitle:
-                'Mobile data & Wi-Fi \n\nSelect when high quality images should load.',
+                'Dữ liệu di động và Wi-Fi \n\nChọn thời điểm tải hình ảnh chất lượng cao.',
             vPadding: 15,
             onPressed: () {
               openDarkModeSettings(context);
@@ -146,9 +146,9 @@ class DataUsagePage extends StatelessWidget {
             secondHeader: true,
           ),
           SettingRowWidget(
-            "High-quality video",
+            "Video chất lượng cao",
             subtitle:
-                'Wi-Fi only \n\nSelect when the highest quality available should play.',
+                'Chỉ Wi-Fi \n\nChọn thời điểm phát chất lượng cao nhất hiện có.',
             vPadding: 15,
             onPressed: () {
               openDarkModeSettings(context);
@@ -157,9 +157,9 @@ class DataUsagePage extends StatelessWidget {
             showCheckBox: null,
           ),
           SettingRowWidget(
-            "Video autoplay",
+            "Tự động phát video",
             subtitle:
-                'Wi-Fi only \n\nSelect when video should play automatically.',
+                'Chỉ Wi-Fi \n\nChọn thời điểm video sẽ tự động phát.',
             vPadding: 15,
             onPressed: () {
               openDarkModeSettings(context);
@@ -168,24 +168,24 @@ class DataUsagePage extends StatelessWidget {
             visibleSwitch: null,
           ),
           const HeaderWidget(
-            'Data sync',
+            'Đồng bộ hóa dữ liệu',
             secondHeader: true,
           ),
           const SettingRowWidget(
-            "Sync data",
+            "Đồng bộ dữ liệu",
             showCheckBox: true,
             visibleSwitch: null,
           ),
           const SettingRowWidget(
-            "Sync interval",
-            subtitle: 'Daily',
+            "Khoảng thời gian đồng bộ hóa",
+            subtitle: 'Hằng ngày',
             showCheckBox: null,
             visibleSwitch: null,
           ),
           const SettingRowWidget(
             null,
             subtitle:
-                'Allow Fwitter to sync data in the background to enhance your experience.',
+                'Cho phép Fwitter đồng bộ hóa dữ liệu ở chế độ nền để nâng cao trải nghiệm của bạn.',
             vPadding: 10,
             showCheckBox: null,
             visibleSwitch: null,

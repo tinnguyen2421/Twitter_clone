@@ -49,18 +49,18 @@ class TrendsPage extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
-            child: TitleText('Sort user list'),
+            child: TitleText('Sắp xếp danh sách người dùng'),
           ),
           const Divider(height: 0),
-          _row(context, "Verified user", SortUser.Verified),
+          _row(context, "Người dùng đã được xác minh", SortUser.Verified),
           const Divider(height: 0),
-          _row(context, "Alphabetically", SortUser.Alphabetically),
+          _row(context, "Theo thứ tự bảng chữ cái", SortUser.Alphabetically),
           const Divider(height: 0),
-          _row(context, "Newest user", SortUser.Newest),
+          _row(context, "Người dùng mới nhất", SortUser.Newest),
           const Divider(height: 0),
-          _row(context, "Oldest user", SortUser.Oldest),
+          _row(context, "Người dùng lâu nhất", SortUser.Oldest),
           const Divider(height: 0),
-          _row(context, "Popular User", SortUser.MaxFollower),
+          _row(context, "Người dùng phổ biến", SortUser.MaxFollower),
         ],
       ),
     );
@@ -90,13 +90,13 @@ class TrendsPage extends StatelessWidget {
       backgroundColor: TwitterColor.white,
       appBar: CustomAppBar(
         isBackButton: true,
-        title: customTitleText('Trends'),
+        title: customTitleText('Xu hướng'),
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children: <Widget>[
           SettingRowWidget(
-            "Search Filter",
+            "Bộ lọc tìm kiếm",
             subtitle:
                 context.select((SearchState value) => value.selectedFilter),
             onPressed: () {
@@ -105,7 +105,7 @@ class TrendsPage extends StatelessWidget {
             showDivider: false,
           ),
           const SettingRowWidget(
-            "Trends location",
+            "Vị trí xu hướng",
             navigateTo: null,
             subtitle: 'New York',
             showDivider: false,
@@ -113,7 +113,7 @@ class TrendsPage extends StatelessWidget {
           const SettingRowWidget(
             null,
             subtitle:
-                'You can see what\'s trending in a specfic location by selecting which location appears in your Trending tab.',
+                'Bạn có thể xem nội dung nào đang thịnh hành ở một vị trí cụ thể bằng cách chọn vị trí nào sẽ xuất hiện trong tab Thịnh hành của bạn.',
             navigateTo: null,
             showDivider: false,
             vPadding: 12,

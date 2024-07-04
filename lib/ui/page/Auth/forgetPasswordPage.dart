@@ -44,7 +44,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
             const SizedBox(
               height: 50,
             ),
-            _entryField('Enter email', controller: _emailController),
+            _entryField('Nhập Email', controller: _emailController),
             // SizedBox(height: 10,),
             _submitButton(context),
           ],
@@ -82,7 +82,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
       margin: const EdgeInsets.symmetric(vertical: 15),
       width: MediaQuery.of(context).size.width,
       child: CustomFlatButton(
-        label: "Submit",
+        label: "Gửi",
         onPressed: _submit,
         borderRadius: 30,
       ),
@@ -93,13 +93,13 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
     return Container(
         child: Column(
       children: <Widget>[
-        customText('Forget Password',
+        customText('Quên mật khẩu',
             style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
         const SizedBox(height: 15),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: customText(
-              'Enter your email address below to receive password reset instruction',
+              'Nhập địa chỉ email của bạn bên dưới để nhận hướng dẫn đặt lại mật khẩu',
               style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
@@ -112,14 +112,14 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
 
   void _submit() {
     if (_emailController.text.isEmpty) {
-      Utility.customSnackBar(context, 'Email field cannot be empty');
+      Utility.customSnackBar(context, 'Email không được để trống');
       return;
     }
     var isValidEmail = Utility.validateEmail(
       _emailController.text,
     );
     if (!isValidEmail) {
-      Utility.customSnackBar(context, 'Please enter valid email address');
+      Utility.customSnackBar(context, 'Vui lòng nhập địa chỉ email hợp lệ');
       return;
     }
 
@@ -132,7 +132,7 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: customText('Forget Password',
+        title: customText('Quên mật khẩu',
             context: context, style: const TextStyle(fontSize: 20)),
         centerTitle: true,
       ),

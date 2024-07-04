@@ -95,9 +95,9 @@ class _FeedPageBody extends StatelessWidget {
                 : !state.isBusy && list == null
                     ? const SliverToBoxAdapter(
                         child: EmptyList(
-                          'No Tweet added yet',
+                          'Chưa có Tweet nào được thêm vào',
                           subTitle:
-                              'When new Tweet added, they\'ll show up here \n Tap tweet button to add new',
+                              'Khi Tweet mới được thêm vào, chúng sẽ hiển thị ở đây \n Nhấn vào nút tweet để thêm mới',
                         ),
                       )
                     : SliverList(

@@ -99,8 +99,8 @@ class NotificationPageBody extends StatelessWidget {
       return const Padding(
         padding: EdgeInsets.symmetric(horizontal: 30),
         child: EmptyList(
-          'No Notification available yet',
-          subTitle: 'When new notification found, they\'ll show up here.',
+          'Chưa có thông báo nào',
+          subTitle: 'Khi tìm thấy thông báo mới, chúng sẽ hiển thị ở đây',
         ),
       );
     }

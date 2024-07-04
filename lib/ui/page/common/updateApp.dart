@@ -50,13 +50,13 @@ class _UpdateAppState extends State<UpdateApp> with WidgetsBindingObserver {
           children: <Widget>[
             Image.asset("assets/images/icon-480.png"),
             const TitleText(
-              "New Update is available",
+              "Đã có bản cập nhật mới",
               fontSize: 25,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 20),
             const TitleText(
-              "The current version of app is no longer supported. We apologized for any inconvenience we may have caused you",
+              "Phiên bản hiện tại của ứng dụng không còn được hỗ trợ. Chúng tôi xin lỗi vì bất kỳ sự bất tiện nào chúng tôi có thể đã gây ra cho bạn",
               fontSize: 14,
               color: AppColor.darkGrey,
               textAlign: TextAlign.center,
@@ -66,7 +66,7 @@ class _UpdateAppState extends State<UpdateApp> with WidgetsBindingObserver {
               width: double.infinity,
               margin: const EdgeInsets.symmetric(vertical: 35),
               child: CustomFlatButton(
-                label: "Update now",
+                label: "Cập nhật bây giờ",
                 onPressed: () => Utility.launchURL(
                     "https://play.google.com/store/apps/details?id=com.thealphamerc.flutter_twitter_clone"),
                 borderRadius: 30,

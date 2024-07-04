@@ -76,7 +76,7 @@ class _NewMessagePageState extends State<NewMessagePage> {
           isBackButton: true,
           isBottomLine: true,
           title: customTitleText(
-            'New Message',
+            'Tin nhắn mới',
           ),
         ),
         body: Consumer<SearchState>(
@@ -88,7 +88,7 @@ class _NewMessagePageState extends State<NewMessagePage> {
                     state.filterByUsername(text);
                   },
                   decoration: InputDecoration(
-                    hintText: "Search for people and groups",
+                    hintText: "Tìm kiếm người và nhóm",
                     hintStyle: const TextStyle(fontSize: 20),
                     prefixIcon: customIcon(
                       context,

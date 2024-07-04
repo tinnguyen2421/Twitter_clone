@@ -30,7 +30,7 @@ class BookmarkPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: TwitterColor.mystic,
       appBar: CustomAppBar(
-        title: Text("Bookmark", style: TextStyles.titleStyle),
+        title: Text("Dấu trang", style: TextStyles.titleStyle),
         isBackButton: true,
       ),
       body: const BookmarkPageBody(),
@@ -65,8 +65,8 @@ class BookmarkPageBody extends StatelessWidget {
       return const Padding(
         padding: EdgeInsets.symmetric(horizontal: 30),
         child: EmptyList(
-          'No Bookmark available yet',
-          subTitle: 'When new bookmark found, they\'ll show up here.',
+          'Chưa có dấu trang nào',
+          subTitle: 'Khi tìm thấy dấu trang mới, chúng sẽ hiển thị ở đây.',
         ),
       );
     }

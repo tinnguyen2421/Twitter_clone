@@ -16,7 +16,7 @@ class PrivacyAndSaftyPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: TwitterColor.white,
       appBar: SettingsAppBar(
-        title: 'Privacy and safety',
+        title: 'Quyền riêng tư và an toàn',
         subtitle: user.userName,
       ),
       body: ListView(
@@ -24,102 +24,102 @@ class PrivacyAndSaftyPage extends StatelessWidget {
         children: const <Widget>[
           HeaderWidget('Tweets'),
           SettingRowWidget(
-            "Protect your tweet",
+            "Bảo vệ bài đăng của bạn của bạn",
             subtitle:
-                'Only current followers and people you approve in future will be able to see your tweets.',
+                'Chỉ những người theo dõi hiện tại và những người bạn chấp thuận trong tương lai mới có thể xem các tweet của bạn.',
             vPadding: 15,
             showDivider: false,
             visibleSwitch: true,
           ),
           SettingRowWidget(
-            "Photo tagging",
-            subtitle: 'Anyone can tag you',
+            "Gắn thẻ ",
+            subtitle: 'Bất cứ ai cũng có thể gắn thẻ bạn',
           ),
           HeaderWidget(
-            'Direct Message',
+            'Tin nhắn trực tiếp',
             secondHeader: true,
           ),
           SettingRowWidget(
-            'Direct Message',
+            'Tin nhắn trực tiếp',
             navigateTo: 'DirectMessagesPage',
           ),
           HeaderWidget(
-            'Live Video',
+            'Video trực tiếp',
             secondHeader: true,
           ),
           SettingRowWidget(
-            "Connect to Periscope",
+            "Kết nối với kính tiềm vọng",
             subtitle:
-                'If selected, you can go live and comment on Periscope broadcasts, and people will be able to see when you\'re watching. if this setting is off, people won\'t be able comment or broadcast live.',
+                'Nếu được chọn, bạn có thể phát trực tiếp và nhận xét về các chương trình phát sóng của Periscope và mọi người sẽ có thể biết khi nào bạn đang xem. nếu cài đặt này tắt, mọi người sẽ không thể bình luận hoặc phát sóng trực tiếp.',
             vPadding: 15,
             showDivider: false,
             visibleSwitch: true,
           ),
           HeaderWidget(
-            'Discoverability and contacts',
+            'Khả năng khám phá và liên hệ',
             secondHeader: true,
           ),
           SettingRowWidget(
-            "Discoverability and contacts",
+            "Khả năng khám phá và liên hệ",
             vPadding: 15,
             showDivider: false,
           ),
           SettingRowWidget(
             null,
             subtitle:
-                'Learn more about how this data is used to connect you with people',
+                'Tìm hiểu thêm về cách dữ liệu này được sử dụng để kết nối bạn với mọi người',
             vPadding: 15,
             showDivider: false,
           ),
           HeaderWidget(
-            'Safety',
+            'An toàn',
             secondHeader: true,
           ),
           SettingRowWidget(
-            "Display media that may contain sensitive content",
+            "Chương trình có thể chứa nội dung nhạy cảm",
             vPadding: 15,
             showDivider: false,
             visibleSwitch: true,
           ),
           SettingRowWidget(
-            "Mark media you tweet as containing material thta may be sensitive",
+            "Đánh dấu phương tiện bạn tweet là chứa tài liệu có thể nhạy cảm",
             vPadding: 15,
             showDivider: false,
             visibleSwitch: true,
           ),
           SettingRowWidget(
-            "Blocked Accounts",
+            "Tài khoản bị chặn",
             showDivider: false,
           ),
           SettingRowWidget(
-            "Muted Accounts",
+            "Tài khoản bị tắt tiếng",
             showDivider: false,
           ),
           SettingRowWidget(
-            "Muted Words",
+            "Từ bị cấm",
             showDivider: false,
           ),
           HeaderWidget(
-            'Location',
+            'Vị trí',
             secondHeader: true,
           ),
           SettingRowWidget(
-            "Precise location",
+            "Vị trí chính xác",
             subtitle:
-                'Disabled \n\n\nIf enabled, Fwitter will collect, store, and use your device\'s precise location, such as your GPS information. This lets Fwitter improve your experience - for example, showing you mpre local content, ads, and recommendations.',
+                'Đã tắt \n\n\nNếu được bật, Fwitter sẽ thu thập, lưu trữ và sử dụng vị trí chính xác của thiết bị, chẳng hạn như thông tin GPS của bạn. Điều này cho phép Fwitter cải thiện trải nghiệm của bạn - ví dụ: hiển thị cho bạn nội dung, quảng cáo và đề xuất địa phương mpre.',
           ),
           HeaderWidget(
-            'Personalisation and data',
+            'Cá nhân hóa và dữ liệu',
             secondHeader: true,
           ),
           SettingRowWidget(
-            "Personalisation and data",
+            "Cá nhân hóa và dữ liệu",
             subtitle: "Allow all",
           ),
           SettingRowWidget(
-            "See your Fwitter data",
+            "Xem dữ liệu Fwitter của bạn",
             subtitle:
-                "Review and edit your profile information and data associated with your account.",
+                "Xem lại và chỉnh sửa thông tin hồ sơ và dữ liệu được liên kết với tài khoản của bạn.",
           ),
         ],
       ),

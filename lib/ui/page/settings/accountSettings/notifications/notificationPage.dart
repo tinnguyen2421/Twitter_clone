@@ -16,36 +16,36 @@ class NotificationPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: TwitterColor.white,
       appBar: SettingsAppBar(
-        title: 'Notifications',
+        title: 'Thông báo',
         subtitle: user.userName,
       ),
       body: ListView(
         children: const <Widget>[
-          HeaderWidget('Filters'),
+          HeaderWidget('Bộ lọc'),
           SettingRowWidget(
-            "Quality filter",
+            "Chât lượng bộ lọc",
             showCheckBox: true,
             subtitle:
-                'Filter lower-quality from your notifications. This won\'t filter out notifications from people you follow or account you\'ve inteacted with recently.',
+                'Lọc chất lượng thấp hơn khỏi thông báo của bạn. Thao tác này sẽ không lọc ra thông báo từ những người bạn theo dõi hoặc tài khoản mà bạn đã tương tác gần đây.',
           ),
           Divider(height: 0),
-          SettingRowWidget("Advanced filter"),
-          SettingRowWidget("Muted word"),
+          SettingRowWidget("Bộ lọc nâng cao"),
+          SettingRowWidget("Từ bị cấm"),
           HeaderWidget(
-            'Preferences',
+            'Sở thích',
             secondHeader: true,
           ),
           SettingRowWidget(
-            "Unread notification count badge",
+            "Biểu tượng đếm thông báo chưa đọc",
             showCheckBox: false,
             subtitle:
-                'Display a badge with the number of notifications waiting for you inside the Fwitter app.',
+                'Hiển thị biểu tượng với số lượng thông báo đang chờ bạn bên trong ứng dụng Fwitter.',
           ),
-          SettingRowWidget("Push notifications"),
-          SettingRowWidget("SMS notifications"),
+          SettingRowWidget("Thông báo đẩy"),
+          SettingRowWidget("Thông báo qua SMS"),
           SettingRowWidget(
-            "Email notifications",
-            subtitle: 'Control when how often Fwitter sends emails to you.',
+            "Thông báo thư điện tử",
+            subtitle: 'Kiểm soát tần suất Fwitter gửi email cho bạn.',
           ),
         ],
       ),

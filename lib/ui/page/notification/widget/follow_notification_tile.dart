@@ -29,7 +29,7 @@ class FollowNotificationTile extends StatelessWidget {
                     model.user.displayName!,
                     style: TextStyles.titleStyle.copyWith(fontSize: 14),
                   ),
-                  Text(" Followed you", style: TextStyles.subtitleStyle),
+                  Text(" Đã theo dõi bạn", style: TextStyles.subtitleStyle),
                 ],
               ),
               const SizedBox(width: 10),
@@ -47,8 +47,8 @@ class _UserCard extends StatelessWidget {
   final UserModel user;
   const _UserCard({Key? key, required this.user}) : super(key: key);
   String getBio(String bio) {
-    if (bio == "Edit profile to update bio") {
-      return "No bio available";
+    if (bio == "Chỉnh sửa hồ sơ để cập nhật tiểu sử") {
+      return "Hồ sơ không có sẵn";
     } else {
       return bio.takeOnly(100);
     }

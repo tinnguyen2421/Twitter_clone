@@ -80,7 +80,7 @@ Widget _translation(Translation translation, BuildContext context,
             Row(
               children: [
                 Text(
-                  "Translated from ${translation.sourceLanguage} ",
+                  "Được dịch từ ${translation.sourceLanguage} ",
                   style: TextStyle(
                       fontSize: 11,
                       color: AppColor.lightGrey,

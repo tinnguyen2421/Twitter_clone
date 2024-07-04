@@ -72,7 +72,7 @@ class UserTile extends StatelessWidget {
   /// Return empty string for default bio
   /// Max length of bio is 100
   String? getBio(String? bio) {
-    if (bio != null && bio.isNotEmpty && bio != "Edit profile to update bio") {
+    if (bio != null && bio.isNotEmpty && bio != "Chỉnh sửa hồ sơ để cập nhật tiểu sử") {
       if (bio.length > 100) {
         bio = bio.substring(0, 100) + '...';
         return bio;

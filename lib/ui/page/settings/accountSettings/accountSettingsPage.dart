@@ -16,37 +16,37 @@ class AccountSettingsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: TwitterColor.white,
       appBar: SettingsAppBar(
-        title: 'Account',
+        title: 'Tài Khoản ',
         subtitle: user.userName,
       ),
       body: ListView(
         children: <Widget>[
-          const HeaderWidget('Login and security'),
+          const HeaderWidget('Đăng nhập và bảo mật'),
           SettingRowWidget(
-            "Username",
+            "Tên người dùng",
             subtitle: user.userName,
           ),
           const Divider(height: 0),
           SettingRowWidget(
-            "Phone",
+            "Số điện thoại",
             subtitle: user.contact,
           ),
           SettingRowWidget(
-            "Email address",
+            "Địa chỉ email",
             subtitle: user.email,
             navigateTo: 'VerifyEmailPage',
           ),
-          const SettingRowWidget("Password"),
-          const SettingRowWidget("Security"),
+          const SettingRowWidget("Mật khẩu"),
+          const SettingRowWidget("Bảo mật"),
           const HeaderWidget(
-            'Data and Permission',
+            'Dữ liệu và Quyền',
             secondHeader: true,
           ),
-          const SettingRowWidget("Country"),
-          const SettingRowWidget("Your Fwitter data"),
-          const SettingRowWidget("Apps and sessions"),
+          const SettingRowWidget("Quốc gia"),
+          const SettingRowWidget("Dữ liệu Twitter của bạn"),
+          const SettingRowWidget("Ứng dụng và phiên"),
           SettingRowWidget(
-            "Log out",
+            "Đăng xuất",
             textColor: TwitterColor.ceriseRed,
             onPressed: () {
               Navigator.popUntil(context, ModalRoute.withName('/'));

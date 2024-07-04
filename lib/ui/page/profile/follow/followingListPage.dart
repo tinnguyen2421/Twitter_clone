@@ -38,11 +38,11 @@ class FollowingListPage extends StatelessWidget {
       );
     }
     return UsersListPage(
-      pageTitle: 'Following',
+      pageTitle: 'Đang theo dõi',
       userIdsList: userList,
       emptyScreenText:
-          '${profile.userName ?? profile.userName} isn\'t follow anyone',
-      emptyScreenSubTileText: 'When they do they\'ll be listed here.',
+            '${profile.userName ?? profile.userName} không theo dõi ai cả',
+      emptyScreenSubTileText: ' Khi họ theo dõi, họ sẽ được liệt kê ở đây.',
       onFollowPressed: (user) {
         context.read<FollowListState>().followUser(user);
       },

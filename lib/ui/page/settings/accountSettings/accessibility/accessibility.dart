@@ -50,14 +50,14 @@ class AccessibilityPage extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 15),
-            child: TitleText('Data preference'),
+            child: TitleText('Tùy chọn dữ liệu'),
           ),
           const Divider(height: 0),
-          _row("Mobile data & Wi-Fi"),
+          _row("Dữ liệu di động & Wi-Fi"),
           const Divider(height: 0),
-          _row("Wi-Fi only"),
+          _row("Chỉ wifi"),
           const Divider(height: 0),
-          _row("Never"),
+          _row("Không bao giờ"),
         ],
       ),
     );
@@ -80,12 +80,12 @@ class AccessibilityPage extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
-            child: TitleText('Dark mode appearance'),
+            child: TitleText('Chế dộ ban đêm'),
           ),
           const Divider(height: 0),
-          _row("Dim"),
+          _row("Mờ"),
           const Divider(height: 0),
-          _row("Light out"),
+          _row("Tắt đèn"),
         ],
       ),
     );
@@ -111,23 +111,23 @@ class AccessibilityPage extends StatelessWidget {
       appBar: CustomAppBar(
         isBackButton: true,
         title: customTitleText(
-          'Accessibility',
+          'Khả năng tiếp cận',
         ),
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children: <Widget>[
-          const HeaderWidget('Screen Reader'),
+            const HeaderWidget('Đọc màn hình'),
           const SettingRowWidget(
-            "Pronounce # as \"hashtag\"",
+            "Phát âm # là \"hashtag\"",
             showCheckBox: true,
           ),
           const Divider(height: 0),
-          const HeaderWidget('Vision'),
+          const HeaderWidget('Tầm nhìn'),
           SettingRowWidget(
-            "Compose image descriptions",
+            "Thêm mô tả hình ảnh",
             subtitle:
-                'Adds the ability to describe images for the visually impaired.',
+                'Thêm khả năng mô tả hình ảnh cho người khiếm thị.',
             vPadding: 15,
             showCheckBox: false,
             onPressed: () {
@@ -136,13 +136,13 @@ class AccessibilityPage extends StatelessWidget {
             showDivider: false,
           ),
           const HeaderWidget(
-            'Motion',
+            'Chuyển động',
             secondHeader: true,
           ),
           SettingRowWidget(
-            "Reduce Motion",
+            "Giảm chuyển động",
             subtitle:
-                'Limit the amount of in-app animations, including live engagement counts.',
+                'Giới hạn số lượng hoạt ảnh trong ứng dụng, bao gồm cả số lượt tương tác trực tiếp.',
             vPadding: 15,
             showCheckBox: false,
             onPressed: () {
@@ -150,8 +150,8 @@ class AccessibilityPage extends StatelessWidget {
             },
           ),
           SettingRowWidget(
-            "Video autoplay",
-            subtitle: 'Wi-Fi only ',
+            "Tự động phát video",
+            subtitle: 'Chỉ wifi ',
             onPressed: () {
               openDarkModeSettings(context);
             },

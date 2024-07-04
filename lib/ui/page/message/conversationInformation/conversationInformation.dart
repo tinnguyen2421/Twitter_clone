@@ -79,15 +79,15 @@ class ConversationInformation extends StatelessWidget {
       appBar: CustomAppBar(
         isBackButton: true,
         title: customTitleText(
-          'Conversation information',
+          'Thông tin hội thoại',
         ),
       ),
       body: ListView(
         children: <Widget>[
           _header(context, user),
-          const HeaderWidget('Notifications'),
+          const HeaderWidget('Thông báo'),
           const SettingRowWidget(
-            "Mute conversation",
+            "Tắt tiếng cuộc trò chuyện",
             visibleSwitch: true,
           ),
           Container(
@@ -95,13 +95,13 @@ class ConversationInformation extends StatelessWidget {
             color: TwitterColor.mystic,
           ),
           SettingRowWidget(
-            "Block ${user.userName}",
+            "Chặn ${user.userName}",
             textColor: TwitterColor.dodgeBlue,
             showDivider: false,
           ),
-          SettingRowWidget("Report ${user.userName}",
+          SettingRowWidget("Báo cáo ${user.userName}",
               textColor: TwitterColor.dodgeBlue, showDivider: false),
-          SettingRowWidget("Delete conversation",
+          SettingRowWidget("Xóa cuộc trò chuyện",
               textColor: TwitterColor.ceriseRed, showDivider: false),
         ],
       ),

@@ -49,7 +49,7 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
     if (state.messageList == null || state.messageList!.isEmpty) {
       return const Center(
         child: Text(
-          'No message found',
+          'Không tìm thấy tin nhắn',
           style: TextStyle(color: Colors.grey, fontWeight: FontWeight.bold),
         ),
       );
@@ -175,7 +175,7 @@ class _ChatScreenPageState extends State<ChatScreenPage> {
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 10, vertical: 13),
               alignLabelWithHint: true,
-              hintText: 'Start with a message...',
+              hintText: 'Bắt đầu bằng một tin nhắn...',
               suffixIcon: IconButton(
                   icon: const Icon(Icons.send), onPressed: submitMessage),
             ),

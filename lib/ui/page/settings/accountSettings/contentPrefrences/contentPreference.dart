@@ -16,38 +16,38 @@ class ContentPrefrencePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: TwitterColor.white,
       appBar: SettingsAppBar(
-        title: 'Content preferences',
+        title: 'Tùy chọn nội dung',
         subtitle: user.userName,
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children: const <Widget>[
-          HeaderWidget('Explore'),
+          HeaderWidget('Khám phá'),
           SettingRowWidget(
-            "Trends",
+            "Xu hướng",
             navigateTo: 'TrendsPage',
           ),
           Divider(height: 0),
           SettingRowWidget(
-            "Search settings",
+            "Thiết lập tìm kiếm",
             navigateTo: null,
           ),
           HeaderWidget(
-            'Languages',
+            'Ngôn ngữ',
             secondHeader: true,
           ),
           SettingRowWidget(
-            "Recommendations",
+            "Khuyến nghị",
             vPadding: 15,
             subtitle:
-                "Select which language you want recommended Tweets, people, and trends to include",
+                "Chọn ngôn ngữ bạn muốn đề xuất đưa vào Tweet, con người và xu hướng",
           ),
           HeaderWidget(
-            'Safety',
+            'An toàn',
             secondHeader: true,
           ),
-          SettingRowWidget("Blocked accounts"),
-          SettingRowWidget("Muted accounts"),
+          SettingRowWidget("Tài khoản bị chặn"),
+          SettingRowWidget("Tài khoản bị tắt tiếng"),
         ],
       ),
     );

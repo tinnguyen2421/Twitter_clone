@@ -29,7 +29,7 @@ class _SidebarMenuState extends State<SidebarMenu> {
         constraints: const BoxConstraints(minWidth: 200, minHeight: 100),
         child: Center(
           child: Text(
-            'Login to continue',
+            'Đăng nhập để tiếp tục',
             style: TextStyles.onPrimaryTitleText,
           ),
         ),

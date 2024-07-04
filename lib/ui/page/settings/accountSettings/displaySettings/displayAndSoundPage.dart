@@ -50,14 +50,14 @@ class DisplayAndSoundPage extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
-            child: TitleText('Dark Mode'),
+            child: TitleText('Chế độ tối'),
           ),
           const Divider(height: 0),
-          _row("On"),
+          _row("Bật"),
           const Divider(height: 0),
-          _row("Off"),
+          _row("Tắt"),
           const Divider(height: 0),
-          _row("Automatic at sunset"),
+          _row("Tự động vào lúc hoàng hôn"),
         ],
       ),
     );
@@ -80,12 +80,12 @@ class DisplayAndSoundPage extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
-            child: TitleText('Dark mode appearance'),
+            child: TitleText('Xuất hiện chế độ tối'),
           ),
           const Divider(height: 0),
-          _row("Dim"),
+          _row("Mờ"),
           const Divider(height: 0),
-          _row("Light out"),
+          _row("Tắt"),
         ],
       ),
     );
@@ -111,58 +111,58 @@ class DisplayAndSoundPage extends StatelessWidget {
       appBar: CustomAppBar(
         isBackButton: true,
         title: customTitleText(
-          'Display and Sound',
+          'Màn hình và âm thanh',
         ),
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children: <Widget>[
-          const HeaderWidget('Media'),
+          const HeaderWidget('Phương tiện truyền thông'),
           const SettingRowWidget(
-            "Media Previews",
+            "Xem trước phương tiện",
             showCheckBox: false,
           ),
           const Divider(height: 0),
-          const HeaderWidget('Display'),
+          const HeaderWidget('Trình chiếu'),
           SettingRowWidget(
-            "Dark Mode",
-            subtitle: 'Off',
+            "Chế độ tối",
+            subtitle: 'Tắt',
             onPressed: () {
               openDarkModeSettings(context);
             },
             showDivider: false,
           ),
           SettingRowWidget(
-            "Dark Mode appearance",
-            subtitle: 'Dim',
+            "Xuất hiện Chế độ tối",
+            subtitle: 'Mờ',
             onPressed: () {
               openDarkModeAppearanceSettings(context);
             },
             showDivider: false,
           ),
           const SettingRowWidget(
-            "Emoji",
+            "Cảm xúc",
             subtitle:
-                'Use the Fwitter set instead of your device\'s default set',
+                  'Sử dụng bộ Fwitter thay vì bộ mặc định của thiết bị của bạn',
             showDivider: false,
             showCheckBox: false,
           ),
           const HeaderWidget(
-            'Sound',
+            'Âm thanh',
             secondHeader: true,
           ),
           const SettingRowWidget(
-            "Sound effects",
+            "Hiệu ứng âm thanh",
             // vPadding: 15,
             showCheckBox: false,
           ),
           const HeaderWidget(
-            'Web browser',
+            'Trình duyệt web',
             secondHeader: false,
           ),
           const SettingRowWidget(
-            "Use in-app browser",
-            subtitle: 'Open external links with Fwitter browser',
+            "Sử dụng trình duyệt trong ứng dụng",
+            subtitle: 'Mở link ngoài bằng trình duyệt Fwitter',
             showCheckBox: false,
           ),
         ],

@@ -120,7 +120,7 @@ class _ImageViewPgeState extends State<ImageViewPge> {
                             horizontal: 10,
                             vertical: 10,
                           ),
-                          hintText: 'Comment here..',
+                          hintText: 'Bình luận ở đây...',
                           hintStyle: const TextStyle(
                             color: Colors.white,
                           ),

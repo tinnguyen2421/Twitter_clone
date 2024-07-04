@@ -52,7 +52,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 Radius.circular(25.0),
               ),
             ),
-            hintText: 'Search..',
+            hintText: 'Tìm kiếm..',
             fillColor: AppColor.extraLightGrey,
             filled: true,
             focusColor: Colors.white,
