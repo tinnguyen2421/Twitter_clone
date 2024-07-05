@@ -52,84 +52,84 @@ class _ImageViewPgeState extends State<ImageViewPge> {
         !isToolAvailable
             ? Container()
             : Align(
-                alignment: Alignment.topLeft,
-                child: SafeArea(
-                  child: Container(
-                      width: 50,
-                      height: 50,
-                      alignment: Alignment.topLeft,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.brown.shade700.withAlpha(200),
+            alignment: Alignment.topLeft,
+            child: SafeArea(
+              child: Container(
+                  width: 50,
+                  height: 50,
+                  alignment: Alignment.topLeft,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.brown.shade700.withAlpha(200),
+                  ),
+                  child: Wrap(
+                    children: const <Widget>[
+                      BackButton(
+                        color: Colors.white,
                       ),
-                      child: Wrap(
-                        children: const <Widget>[
-                          BackButton(
-                            color: Colors.white,
-                          ),
-                        ],
-                      )),
-                )),
+                    ],
+                  )),
+            )),
         !isToolAvailable
             ? Container()
             : Align(
-                alignment: Alignment.bottomCenter,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    TweetIconsRow(
-                      model: state.tweetDetailModel!.last,
-                      iconColor: Theme.of(context).colorScheme.onPrimary,
-                      iconEnableColor: Theme.of(context).colorScheme.onPrimary,
-                      scaffoldKey: GlobalKey<ScaffoldState>(),
-                    ),
-                    Container(
-                      color: Colors.brown.shade700.withAlpha(200),
-                      padding: const EdgeInsets.only(
-                          right: 10, left: 10, bottom: 10),
-                      child: TextField(
-                        controller: _textEditingController,
-                        maxLines: null,
-                        style: const TextStyle(color: Colors.white),
-                        decoration: InputDecoration(
-                          fillColor: Colors.blue,
-                          border: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(30.0),
-                            ),
-                            borderSide: BorderSide(
-                              color: Colors.white,
-                            ),
-                          ),
-                          focusedBorder: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(30.0),
-                            ),
-                            borderSide: BorderSide(
-                              color: Colors.white,
-                            ),
-                          ),
-                          suffixIcon: IconButton(
-                            onPressed: () {
-                              _submitButton();
-                            },
-                            icon: const Icon(Icons.send, color: Colors.white),
-                          ),
-                          focusColor: Colors.black,
-                          contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 10,
-                          ),
-                          hintText: 'Bình luận ở đây...',
-                          hintStyle: const TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
+          alignment: Alignment.bottomCenter,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              TweetIconsRow(
+                model: state.tweetDetailModel!.last,
+                iconColor: Theme.of(context).colorScheme.onPrimary,
+                iconEnableColor: Theme.of(context).colorScheme.onPrimary,
+                scaffoldKey: GlobalKey<ScaffoldState>(),
+              ),
+              Container(
+                color: Colors.brown.shade700.withAlpha(200),
+                padding: const EdgeInsets.only(
+                    right: 10, left: 10, bottom: 10),
+                child: TextField(
+                  controller: _textEditingController,
+                  maxLines: null,
+                  style: const TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    fillColor: Colors.blue,
+                    border: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(30.0),
+                      ),
+                      borderSide: BorderSide(
+                        color: Colors.white,
                       ),
                     ),
-                  ],
+                    focusedBorder: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(30.0),
+                      ),
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                      ),
+                    ),
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        _submitButton();
+                      },
+                      icon: const Icon(Icons.send, color: Colors.white),
+                    ),
+                    focusColor: Colors.black,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 10,
+                    ),
+                    hintText: 'Bình luận ở đây...',
+                    hintStyle: const TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -138,14 +138,14 @@ class _ImageViewPgeState extends State<ImageViewPge> {
     return _image == null
         ? Container()
         : Container(
-            alignment: Alignment.center,
-            child: InteractiveViewer(
-              child: CacheImage(
-                path: _image,
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-          );
+      alignment: Alignment.center,
+      child: InteractiveViewer(
+        child: CacheImage(
+          path: _image,
+          fit: BoxFit.fitWidth,
+        ),
+      ),
+    );
   }
 
   void _submitButton() {

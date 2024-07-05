@@ -311,7 +311,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         backgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.blue),
         title: customTitleText(
-          'Profile Edit',
+          'Chỉnh sửa hồ sơ',
         ),
         actions: <Widget>[
           InkWell(

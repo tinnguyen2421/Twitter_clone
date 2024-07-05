@@ -33,6 +33,9 @@ class Validator {
     if (s.isEmpty) {
       return 'Phải an toàn, nhập mật khẩu!';
     }
+    else if (s.length<8) {
+      return 'Mật khẩu phải hơn 8 kí tự';
+    }
     return null;
   }
 }

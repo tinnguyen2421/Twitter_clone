@@ -145,6 +145,7 @@ class TweetBaseState extends AppState {
   /// Add new [tweet]
   /// Returns new tweet id
   String? createPost(FeedModel tweet) {
+
     var json = tweet.toJson();
     var reference = kDatabase.child('tweet').push();
     reference.set(json);
@@ -168,4 +169,5 @@ class TweetBaseState extends AppState {
       return null;
     }
   }
+
 }

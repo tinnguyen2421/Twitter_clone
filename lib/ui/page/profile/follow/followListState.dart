@@ -104,7 +104,7 @@ class FollowListState extends AppState {
               profilePic: _currentUser!.profilePic,
               isVerified: _currentUser!.isVerified,
               userId: _currentUser!.userId,
-              bio: _currentUser!.bio == "Edit profile to update bio"
+              bio: _currentUser!.bio == "Chỉnh sửa hồ sơ để cập nhật tiểu sử"
                   ? ""
                   : _currentUser!.bio,
               userName: _currentUser!.userName)

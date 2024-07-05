@@ -60,7 +60,7 @@ class GoogleLoginButton extends StatelessWidget {
             ),
             const SizedBox(width: 10),
             const TitleText(
-              'Continue with Google',
+              'Tiếp tục với google',
               color: Colors.black54,
             ),
           ],

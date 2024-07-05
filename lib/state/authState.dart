@@ -266,7 +266,7 @@ class AuthState extends AppState {
           parameter: {userModel!.displayName!: user.email});
       Utility.customSnackBar(
         context,
-        'An email verification link is send to your email.',
+        'Link xác thực email đã được gửi đến email của bạn!.',
       );
     }).catchError((error) {
       cprint(error.message, errorIn: 'sendEmailVerification');
@@ -291,7 +291,7 @@ class AuthState extends AppState {
     try {
       await _firebaseAuth.sendPasswordResetEmail(email: email).then((value) {
         Utility.customSnackBar(context,
-            'A reset password link is sent yo your mail.You can reset your password from there');
+            'Một liên kết đặt lại mật khẩu sẽ được gửi qua thư của bạn. Bạn có thể đặt lại mật khẩu của mình từ đó');
         Utility.logEvent('forgot+password', parameter: {});
       }).catchError((error) {
         cprint(error.message);

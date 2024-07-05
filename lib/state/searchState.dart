@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter_twitter_clone/helper/enum.dart';
 import 'package:flutter_twitter_clone/helper/utility.dart';
@@ -22,8 +23,9 @@ class SearchState extends AppState {
   void getDataFromDatabase() {
     try {
       isBusy = true;
+      String? currentUserId = FirebaseAuth.instance.currentUser?.uid;
       kDatabase.child('profile').once().then(
-        (DatabaseEvent event) {
+            (DatabaseEvent event) {
           final snapshot = event.snapshot;
           _userlist = <UserModel>[];
           _userFilterList = <UserModel>[];
@@ -33,8 +35,11 @@ class SearchState extends AppState {
               map.forEach((key, value) {
                 var model = UserModel.fromJson(value);
                 model.key = key;
-                _userlist!.add(model);
-                _userFilterList!.add(model);
+                // Check if the user is not the current user
+                if (model.key != currentUserId) {
+                  _userlist!.add(model);
+                  _userFilterList!.add(model);
+                }
               });
               _userFilterList!
                   .sort((x, y) => y.followers!.compareTo(x.followers!));

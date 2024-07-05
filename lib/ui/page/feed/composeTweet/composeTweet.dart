@@ -556,7 +556,7 @@ class _TextField extends StatelessWidget {
           decoration: InputDecoration(
               border: InputBorder.none,
               hintText: isTweet
-                  ? 'Chuyện gì đang xảy ra ?'
+                  ? 'Chuyện gì đang xảy ra  ?'
                   : isRetweet
                       ? 'Thêm một bình luận'
                       : 'Đăng câu trả lời của bạn',

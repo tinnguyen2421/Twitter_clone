@@ -35,7 +35,8 @@ class SuggestionsState extends AppState {
       });
 
       _userlist = list.take(20).toList();
-      _userlist!.removeWhere((element) => isFollowing(element));
+      // Loại bỏ người dùng hiện tại khỏi danh sách gợi ý
+      _userlist!.removeWhere((element) => isFollowing(element) || element.userId == currentUser!.userId);
       _selectedUsers = List.from(_userlist!);
     }
   }

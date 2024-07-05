@@ -69,22 +69,25 @@ class _SuggestedUsersState extends State<SuggestedUsers> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: CustomFlatButton(
-                        onPressed: state.selectedUsersCount < userToFollowCount
-                            ? null
-                            : () async {
-                                isLoading.value = true;
-                                await state.followUsers();
-                                isLoading.value = false;
-                              },
+                      child: state.selectedUsersCount > 0
+                          ? CustomFlatButton(
+                        onPressed: () async {
+                          isLoading.value = true;
+                          await state.followUsers();
+                          isLoading.value = false;
+                        },
                         label: 'Theo dõi ${state.selectedUsersCount}',
                         isWrapped: true,
                         borderRadius: 50,
                         labelStyle: TextStyles.onPrimaryTitleText,
-                        color: state.selectedUsersCount < userToFollowCount
-                            ? Colors.grey[350]
-                            : TwitterColor.dodgeBlue,
+                        color: TwitterColor.dodgeBlue,
                         isLoading: isLoading,
+                      )
+                          : TextButton(
+                        onPressed: () {
+                          state.displaySuggestions = false;
+                        },
+                        child: Text('Bỏ qua'),
                       ),
                     ),
                   ],

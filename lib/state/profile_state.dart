@@ -155,7 +155,7 @@ class ProfileState extends ChangeNotifier {
               profilePic: userModel.profilePic,
               isVerified: userModel.isVerified,
               userId: userModel.userId,
-              bio: userModel.bio == "Edit profile to update bio"
+              bio: userModel.bio == "Chỉnh sửa hồ sơ để cập nhật tiểu sử"
                   ? ""
                   : userModel.bio,
               userName: userModel.userName)
