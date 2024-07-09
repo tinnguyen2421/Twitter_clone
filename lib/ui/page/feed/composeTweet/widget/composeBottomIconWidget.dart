@@ -5,13 +5,17 @@ import 'package:flutter_twitter_clone/ui/theme/theme.dart';
 import 'package:flutter_twitter_clone/widgets/customWidgets.dart';
 import 'package:image_picker/image_picker.dart';
 
+import 'composeTweetVideo.dart';
+
 class ComposeBottomIconWidget extends StatefulWidget {
   final TextEditingController textEditingController;
   final Function(File) onImageIconSelected;
+  final Function(File) onVideoIconSelected;
   const ComposeBottomIconWidget(
       {Key? key,
-      required this.textEditingController,
-      required this.onImageIconSelected})
+        required this.textEditingController,
+        required this.onImageIconSelected,
+      required this.onVideoIconSelected,})
       : super(key: key);
 
   @override
@@ -20,6 +24,7 @@ class ComposeBottomIconWidget extends StatefulWidget {
 }
 
 class _ComposeBottomIconWidgetState extends State<ComposeBottomIconWidget> {
+  File? _video;
   bool reachToWarning = false;
   bool reachToOver = false;
   late Color wordCountColor;
@@ -74,43 +79,62 @@ class _ComposeBottomIconWidgetState extends State<ComposeBottomIconWidget> {
                   icon: AppIcon.camera,
                   isTwitterIcon: true,
                   iconColor: AppColor.primary)),
+          IconButton(
+              onPressed: () {
+                pickVideo();
+              },
+              icon: customIcon(context,
+                  icon: AppIcon.camera,
+                  isTwitterIcon: true,
+                  iconColor: AppColor.primary)),
+          if (_video != null)
+
           Expanded(
               child: Align(
-            alignment: Alignment.centerRight,
-            child: Padding(
-                padding:
+                alignment: Alignment.centerRight,
+                child: Padding(
+                    padding:
                     const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
-                child: /*tweet != null &&*/ tweet.length > 289
-                    ? Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: customText(
-                          '${280 - tweet.length}',
-                          style: TextStyle(
-                              color: Theme.of(context).colorScheme.error),
+                    child: /*tweet != null &&*/ tweet.length > 289
+                        ? Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: customText(
+                        '${280 - tweet.length}',
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.error),
+                      ),
+                    )
+                        : Stack(
+                      alignment: Alignment.center,
+                      children: <Widget>[
+                        CircularProgressIndicator(
+                          value: getTweetLimit(),
+                          backgroundColor: Colors.grey,
+                          valueColor:
+                          AlwaysStoppedAnimation<Color>(wordCountColor),
                         ),
-                      )
-                    : Stack(
-                        alignment: Alignment.center,
-                        children: <Widget>[
-                          CircularProgressIndicator(
-                            value: getTweetLimit(),
-                            backgroundColor: Colors.grey,
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(wordCountColor),
-                          ),
-                          tweet.length > 259
-                              ? customText('${280 - tweet.length}',
-                                  style: TextStyle(color: wordCountColor))
-                              : customText('',
-                                  style: TextStyle(color: wordCountColor))
-                        ],
-                      )),
-          ))
+                        tweet.length > 259
+                            ? customText('${280 - tweet.length}',
+                            style: TextStyle(color: wordCountColor))
+                            : customText('',
+                            style: TextStyle(color: wordCountColor))
+                      ],
+                    )),
+              ))
         ],
       ),
     );
   }
-
+  void pickVideo() {
+    ImagePicker().pickVideo(source: ImageSource.gallery).then((XFile? file) {
+      if (file != null) {
+        setState(() {
+          _video = File(file.path);
+          widget.onVideoIconSelected(_video!); // Gọi callback để thông báo đã chọn video
+        });
+      }
+    });
+  }
   void setImage(ImageSource source) {
     ImagePicker()
         .pickImage(source: source, imageQuality: 20)

@@ -8,6 +8,7 @@ import 'package:flutter_twitter_clone/model/user.dart';
 import 'package:flutter_twitter_clone/ui/page/feed/composeTweet/state/composeTweetState.dart';
 import 'package:flutter_twitter_clone/ui/page/feed/composeTweet/widget/composeBottomIconWidget.dart';
 import 'package:flutter_twitter_clone/ui/page/feed/composeTweet/widget/composeTweetImage.dart';
+import 'package:flutter_twitter_clone/ui/page/feed/composeTweet/widget/composeTweetVideo.dart';
 import 'package:flutter_twitter_clone/ui/page/feed/composeTweet/widget/widgetView.dart';
 import 'package:flutter_twitter_clone/state/authState.dart';
 import 'package:flutter_twitter_clone/state/feedState.dart';
@@ -33,11 +34,15 @@ class ComposeTweetPage extends StatefulWidget {
 }
 
 class _ComposeTweetReplyPageState extends State<ComposeTweetPage> {
+
+
+
   bool isScrollingDown = false;
   late FeedModel? model;
   late ScrollController scrollController;
 
   File? _image;
+  File? _video;
   late TextEditingController _textEditingController;
 
   @override
@@ -75,15 +80,22 @@ class _ComposeTweetReplyPageState extends State<ComposeTweetPage> {
   void _onCrossIconPressed() {
     setState(() {
       _image = null;
+      _video = null;
     });
   }
 
   void _onImageIconSelected(File file) {
     setState(() {
       _image = file;
+      _video=null;
     });
   }
-
+  void _onVideoIconSelected(File video) {
+    setState(() {
+      _video = video;
+      _image=null;
+    });
+  }
   /// Submit tweet to save in firebase database
   void _submitButton() async {
     if (_textEditingController.text.isEmpty ||
@@ -122,7 +134,28 @@ class _ComposeTweetReplyPageState extends State<ComposeTweetPage> {
         }
       });
     }
+    else if (_video != null) {
+      await state.uploadFile(_video!).then((videoPath) async {
+        if (videoPath != null) {
+          tweetModel.videoPath = videoPath;
 
+          /// If type of tweet is new tweet
+          if (widget.isTweet) {
+            tweetId = await state.createTweet(tweetModel);
+          }
+
+          /// If type of tweet is  retweet
+          else if (widget.isRetweet) {
+            tweetId = await state.createReTweet(tweetModel);
+          }
+
+          /// If type of tweet is new comment tweet
+          else {
+            tweetId = await state.addCommentToPost(tweetModel);
+          }
+        }
+      });
+    }
     /// If tweet did not contain image
     else {
       /// If type of tweet is new tweet
@@ -147,7 +180,7 @@ class _ComposeTweetReplyPageState extends State<ComposeTweetPage> {
     /// If no user found, compose tweet screen is closed and redirect back to home page.
     await Provider.of<ComposeTweetState>(context, listen: false)
         .sendNotification(
-            tweetModel, Provider.of<SearchState>(context, listen: false))
+        tweetModel, Provider.of<SearchState>(context, listen: false))
         .then((_) {
       /// Hide running loader on screen
       kScreenLoader.hideLoader();
@@ -178,25 +211,26 @@ class _ComposeTweetReplyPageState extends State<ComposeTweetPage> {
     FeedModel reply = FeedModel(
         description: _textEditingController.text,
         lanCode:
-            (await GoogleTranslator().translate(_textEditingController.text))
-                .sourceLanguage
-                .code,
+        (await GoogleTranslator().translate(_textEditingController.text))
+            .sourceLanguage
+            .code,
         user: commentedUser,
         createdAt: DateTime.now().toUtc().toString(),
         tags: tags,
         parentkey: widget.isTweet
             ? null
             : widget.isRetweet
-                ? null
-                : state.tweetToReplyModel!.key,
+            ? null
+            : state.tweetToReplyModel!.key,
         childRetwetkey: widget.isTweet
             ? null
             : widget.isRetweet
-                ? model!.key
-                : null,
+            ? model!.key
+            : null,
         userId: myUser.userId!);
     return reply;
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -208,11 +242,11 @@ class _ComposeTweetReplyPageState extends State<ComposeTweetPage> {
         submitButtonText: widget.isTweet
             ? 'Đăng'
             : widget.isRetweet
-                ? 'Đăng lại'
-                : 'Trả lời',
+            ? 'Đăng lại'
+            : 'Trả lời',
         isSubmitDisable:
-            !Provider.of<ComposeTweetState>(context).enableSubmitButton ||
-                Provider.of<FeedState>(context).isBusy,
+        !Provider.of<ComposeTweetState>(context).enableSubmitButton ||
+            Provider.of<FeedState>(context).isBusy,
         isBottomLine: Provider.of<ComposeTweetState>(context).isScrollingDown,
       ),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -222,15 +256,23 @@ class _ComposeTweetReplyPageState extends State<ComposeTweetPage> {
           SingleChildScrollView(
             controller: scrollController,
             child:
-                widget.isRetweet ? _ComposeRetweet(this) : _ComposeTweet(this),
+            widget.isRetweet ? _ComposeRetweet(this) : _ComposeTweet(this),
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: ComposeBottomIconWidget(
               textEditingController: _textEditingController,
               onImageIconSelected: _onImageIconSelected,
+              onVideoIconSelected: _onVideoIconSelected,
             ),
           ),
+          if (_video != null)
+            Positioned(
+              bottom: 120, // Adjust position as needed
+              left: 0,
+              right: 0,
+              child:VideoPlayerWidget(videoPath: _video!.path, onCrossIconPressed: _onCrossIconPressed,)
+            ),
         ],
       ),
     );
@@ -275,13 +317,13 @@ class _ComposeRetweet
                   const SizedBox(width: 3),
                   model.user!.isVerified!
                       ? customIcon(
-                          context,
-                          icon: AppIcon.blueTick,
-                          isTwitterIcon: true,
-                          iconColor: AppColor.primary,
-                          size: 13,
-                          paddingIcon: 3,
-                        )
+                    context,
+                    icon: AppIcon.blueTick,
+                    isTwitterIcon: true,
+                    iconColor: AppColor.primary,
+                    size: 13,
+                    paddingIcon: 3,
+                  )
                       : const SizedBox(width: 0),
                   SizedBox(width: model.user!.isVerified! ? 5 : 0),
                   Flexible(
@@ -327,9 +369,9 @@ class _ComposeRetweet
             children: <Widget>[
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child:
-                    CircularImage(path: authState.user?.photoURL, height: 40),
+                CircularImage(path: authState.user?.photoURL, height: 40),
               ),
               Expanded(
                 child: _TextField(
@@ -364,11 +406,12 @@ class _ComposeRetweet
                           border: Border.all(
                               color: AppColor.extraLightGrey, width: .5),
                           borderRadius:
-                              const BorderRadius.all(Radius.circular(15))),
+                          const BorderRadius.all(Radius.circular(15))),
                       child: _tweet(context, viewState.model!),
                     ),
                   ],
                 ),
+
                 _UserList(
                   list: Provider.of<SearchState>(context).userlist,
                   textEditingController: viewState._textEditingController,
@@ -429,7 +472,7 @@ class _ComposeTweet
                   const SizedBox(height: 30),
                   UrlText(
                     text:
-                        'Đang trả lời ${viewState.model!.user!.userName ?? viewState.model!.user!.displayName}',
+                    'Đang trả lời ${viewState.model!.user!.userName ?? viewState.model!.user!.displayName}',
                     style: TextStyle(
                       color: TwitterColor.paleSky,
                       fontSize: 13,
@@ -447,7 +490,7 @@ class _ComposeTweet
                 const SizedBox(width: 10),
                 ConstrainedBox(
                   constraints:
-                      BoxConstraints(minWidth: 0, maxWidth: context.width * .5),
+                  BoxConstraints(minWidth: 0, maxWidth: context.width * .5),
                   child: TitleText(viewState.model!.user!.displayName!,
                       fontSize: 16,
                       fontWeight: FontWeight.w800,
@@ -456,13 +499,13 @@ class _ComposeTweet
                 const SizedBox(width: 3),
                 viewState.model!.user!.isVerified!
                     ? customIcon(
-                        context,
-                        icon: AppIcon.blueTick,
-                        isTwitterIcon: true,
-                        iconColor: AppColor.primary,
-                        size: 13,
-                        paddingIcon: 3,
-                      )
+                  context,
+                  icon: AppIcon.blueTick,
+                  isTwitterIcon: true,
+                  iconColor: AppColor.primary,
+                  size: 13,
+                  paddingIcon: 3,
+                )
                     : const SizedBox(width: 0),
                 SizedBox(width: viewState.model!.user!.isVerified! ? 5 : 0),
                 customText('${viewState.model!.user!.userName}',
@@ -532,9 +575,9 @@ class _ComposeTweet
 class _TextField extends StatelessWidget {
   const _TextField(
       {Key? key,
-      required this.textEditingController,
-      this.isTweet = false,
-      this.isRetweet = false})
+        required this.textEditingController,
+        this.isTweet = false,
+        this.isRetweet = false})
       : super(key: key);
   final TextEditingController textEditingController;
   final bool isTweet;
@@ -558,8 +601,8 @@ class _TextField extends StatelessWidget {
               hintText: isTweet
                   ? 'Chuyện gì đang xảy ra  ?'
                   : isRetweet
-                      ? 'Thêm một bình luận'
-                      : 'Đăng câu trả lời của bạn',
+                  ? 'Thêm một bình luận'
+                  : 'Đăng câu trả lời của bạn',
               hintStyle: const TextStyle(fontSize: 18)),
         ),
       ],
@@ -576,35 +619,35 @@ class _UserList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return !Provider.of<ComposeTweetState>(context).displayUserList ||
-            list == null ||
-            list!.length < 0 ||
-            list!.isEmpty
+        list == null ||
+        list!.length < 0 ||
+        list!.isEmpty
         ? const SizedBox.shrink()
         : Container(
-            padding: const EdgeInsetsDirectional.only(bottom: 50),
-            color: TwitterColor.white,
-            constraints:
-                const BoxConstraints(minHeight: 30, maxHeight: double.infinity),
-            child: ListView.builder(
-              itemCount: list!.length,
-              physics: ClampingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return _UserTile(
-                  user: list![index],
-                  onUserSelected: (user) {
-                    textEditingController.text =
-                        Provider.of<ComposeTweetState>(context, listen: false)
-                                .getDescription(user.userName!) +
-                            " ";
-                    textEditingController.selection = TextSelection.collapsed(
-                        offset: textEditingController.text.length);
-                    Provider.of<ComposeTweetState>(context, listen: false)
-                        .onUserSelected();
-                  },
-                );
-              },
-            ),
+      padding: const EdgeInsetsDirectional.only(bottom: 50),
+      color: TwitterColor.white,
+      constraints:
+      const BoxConstraints(minHeight: 30, maxHeight: double.infinity),
+      child: ListView.builder(
+        itemCount: list!.length,
+        physics: ClampingScrollPhysics(),
+        itemBuilder: (context, index) {
+          return _UserTile(
+            user: list![index],
+            onUserSelected: (user) {
+              textEditingController.text =
+                  Provider.of<ComposeTweetState>(context, listen: false)
+                      .getDescription(user.userName!) +
+                      " ";
+              textEditingController.selection = TextSelection.collapsed(
+                  offset: textEditingController.text.length);
+              Provider.of<ComposeTweetState>(context, listen: false)
+                  .onUserSelected();
+            },
           );
+        },
+      ),
+    );
   }
 }
 
@@ -625,7 +668,7 @@ class _UserTile extends StatelessWidget {
         children: <Widget>[
           ConstrainedBox(
             constraints:
-                BoxConstraints(minWidth: 0, maxWidth: context.width * .5),
+            BoxConstraints(minWidth: 0, maxWidth: context.width * .5),
             child: TitleText(user.displayName!,
                 fontSize: 16,
                 fontWeight: FontWeight.w800,
@@ -634,13 +677,13 @@ class _UserTile extends StatelessWidget {
           const SizedBox(width: 3),
           user.isVerified!
               ? customIcon(
-                  context,
-                  icon: AppIcon.blueTick,
-                  isTwitterIcon: true,
-                  iconColor: AppColor.primary,
-                  size: 13,
-                  paddingIcon: 3,
-                )
+            context,
+            icon: AppIcon.blueTick,
+            isTwitterIcon: true,
+            iconColor: AppColor.primary,
+            size: 13,
+            paddingIcon: 3,
+          )
               : const SizedBox(width: 0),
         ],
       ),

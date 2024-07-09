@@ -111,6 +111,7 @@ class Tweet extends StatelessWidget {
                   type: type,
                 ),
               ),
+
               model.childRetwetkey == null
                   ? const SizedBox.shrink()
                   : RetweetWidget(

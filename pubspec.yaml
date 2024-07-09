@@ -50,6 +50,9 @@ dependencies:
   qr_flutter: ^4.1.0
   rxdart: ^0.27.2
   translator: ^0.1.7
+
+  video_player: ^2.2.8
+  chewie: ^1.2.2
   # link_preview_generator: ^1.2.0
 
 dev_dependencies:

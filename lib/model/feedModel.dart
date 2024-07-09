@@ -14,6 +14,7 @@ class FeedModel {
   int? retweetCount;
   late String createdAt;
   String? imagePath;
+  String? videoPath;
   List<String>? tags;
   List<String?>? replyTweetKeyList;
   String?
@@ -28,6 +29,7 @@ class FeedModel {
       this.retweetCount,
       required this.createdAt,
       this.imagePath,
+        this.videoPath,
       this.likeList,
       this.tags,
       this.user,
@@ -44,6 +46,7 @@ class FeedModel {
       "retweetCount": retweetCount ?? 0,
       "createdAt": createdAt,
       "imagePath": imagePath,
+      "videoPath":videoPath,
       "likeList": likeList,
       "tags": tags,
       "replyTweetKeyList": replyTweetKeyList,
@@ -64,6 +67,7 @@ class FeedModel {
     imagePath = map['imagePath'];
     createdAt = map['createdAt'];
     imagePath = map['imagePath'];
+    videoPath = map['videoPath'];
     lanCode = map['lanCode'];
     user = UserModel.fromJson(map['user']);
     parentkey = map['parentkey'];
