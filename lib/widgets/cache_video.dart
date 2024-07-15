@@ -29,6 +29,7 @@ class _CacheVideoState extends State<CacheVideo> {
       autoPlay: false,
       looping: true, // Lặp lại video khi phát xong
       allowPlaybackSpeedChanging: false,
+      autoInitialize: true,
       allowFullScreen: true,
       placeholder: Container(
         color: const Color(0xffeeeeee),

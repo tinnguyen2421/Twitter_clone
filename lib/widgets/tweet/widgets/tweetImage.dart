@@ -68,7 +68,7 @@ class TweetImage extends StatelessWidget {
             ),
             child: Container(
               width: MediaQuery.of(context).size.width *
-                  (type == TweetType.Detail ? 1 : 0.8) -
+                      (type == TweetType.Detail ? 1 : 0.8) -
                   8,
               decoration: BoxDecoration(
                 color: Theme.of(context).scaffoldBackgroundColor,
@@ -112,7 +112,7 @@ class TweetImage extends StatelessWidget {
             ),
             child: Container(
               width: MediaQuery.of(context).size.width *
-                  (type == TweetType.Detail ? 0.95 : 0.8) -
+                      (type == TweetType.Detail ? 0.95 : 0.8) -
                   8,
               decoration: BoxDecoration(
                 color: Theme.of(context).scaffoldBackgroundColor,
@@ -121,8 +121,7 @@ class TweetImage extends StatelessWidget {
                 aspectRatio: 4 / 3,
                 child: CacheVideo(
                   fit: BoxFit.cover,
-                  videoPath:
-                  'https://firebasestorage.googleapis.com/v0/b/instagram-clone-ddd46.appspot.com/o/tweetImage%2Fv10044g50000cpjtv6vog65vpflplcrg.mp4?alt=media&token=5d9cefb1-080a-481c-95c2-ccb99fca8b9b',
+                  videoPath: model.videoPath!,
                 ),
               ),
             ),
